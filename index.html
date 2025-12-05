@@ -46,47 +46,13 @@
     <meta name="msapplication-TileColor" content="#0f172a" />
     <meta name="theme-color" content="#0f172a" />
     <link rel="icon" type="image/png" href="files/img/favicon.png" />
-    <meta name="next-head-count" content="29" />
     <link rel="preload" href="./files/tailwind.css" as="style" />
-    <link rel="stylesheet" href="./files/tailwind.css" data-n-g="" />
-    <noscript data-n-css=""></noscript>
-    <script defer="" nomodule="" src="./files/js/polyfills-c67a75d1b6f99dc8.js"></script>
-    <script src="./files/js/webpack-5146130448d8adf7.js" defer=""></script>
-    <script src="./files/js/framework-2c79e2a64abdb08b.js" defer=""></script>
-    <script src="./files/js/main-342b3f0888afe918.js" defer=""></script>
-    <script src="./files/js/_app-6962023fe99d06fd.js" defer=""></script>
-    <script src="./files/js/664-09cd891ecc3af1d0.js" defer=""></script>
-    <script src="./files/js/506-95c309a4d817bb8b.js" defer=""></script>
-    <script src="./files/js/index-3b4166191a9bee97.js" defer=""></script>
-    <script src="./files/js/_buildManifest.js" defer=""></script>
-    <script src="./files/js/_ssgManifest.js" defer=""></script>
+    <link rel="stylesheet" href="./files/tailwind.css" />
     <style>
         .taviraj-regular {
             font-family: "Taviraj", serif;
             font-weight: 400;
             font-style: normal;
-        }
-        
-        .village-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 2147483647;
-            background: #0000003d;
-            color-scheme: light;
-        }
-        
-        .village-iframe.village-loading {
-            display: flex;
-            justify-content: center;
-        }
-        
-        .village-iframe.village-hidden {
-            display: none;
         }
         /* Theme Variables */
         
@@ -177,7 +143,7 @@
         }
         
         [data-theme="light"] .group:hover .group-hover\:bg-slate-800\/50 {
-            background-color: var(--bg-hover) !important;
+            background-color: transparent !important;
         }
         
         [data-theme="light"] .border-slate-200\/10,
@@ -185,16 +151,19 @@
             border-color: var(--border) !important;
         }
         
-        [data-theme="light"] .selection\:bg-teal-300::selection {
-            background-color: var(--selection-bg) !important;
-        }
-        
-        [data-theme="light"] .selection\:text-teal-900::selection {
-            color: var(--selection-text) !important;
-        }
-        
         [data-theme="light"] .bg-slate-900\/75 {
             background-color: rgba(248, 249, 250, 0.95) !important;
+        }
+        /* Text selection colors */
+        
+         ::selection {
+            background-color: var(--selection-bg);
+            color: var(--selection-text);
+        }
+        
+         ::-moz-selection {
+            background-color: var(--selection-bg);
+            color: var(--selection-text);
         }
         /* Navigation indicators in light mode */
         
@@ -215,11 +184,23 @@
         [data-theme="light"] .group:focus-visible .nav-text {
             color: var(--text-primary) !important;
         }
+        /* Disable box hover effects in light mode */
+        
+        [data-theme="light"] .lg\:group-hover\:bg-slate-800\/50 {
+            background-color: transparent !important;
+        }
+        
+        [data-theme="light"] .lg\:group-hover\:shadow-\[inset_0_1px_0_0_rgba\(148\2c 163\2c 184\2c 0\.1\)\] {
+            box-shadow: none !important;
+        }
+        
+        [data-theme="light"] .lg\:group-hover\:drop-shadow-lg {
+            filter: none !important;
+        }
     </style>
-    <link as="script" rel="prefetch" href="./files/js/archive-a10dc9d5ab37ed2e.js" />
 </head>
 
-<body class="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900 taviraj-regular" style="background-color: var(--bg-primary); color: var(--text-secondary);">
+<body class="bg-slate-900 leading-relaxed text-slate-400 antialiased taviraj-regular" style="background-color: var(--bg-primary); color: var(--text-secondary);">
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -230,379 +211,378 @@
         </svg>
     </button>
 
-    <div id="__next">
-        <div class="__variable_20b187 group/spotlight relative taviraj-regular">
-            <div class="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute" id="mouseGlow" style="background: radial-gradient(600px at 50vw 50vh, rgba(29, 78, 216, 0.15), transparent 80%);"></div>
-            <script>
-                const glowDiv = document.getElementById('mouseGlow');
+    <div class="group/spotlight relative taviraj-regular">
+        <div class="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute" id="mouseGlow" style="background: radial-gradient(600px at 50vw 50vh, rgba(29, 78, 216, 0.15), transparent 80%);"></div>
+        <script>
+            const glowDiv = document.getElementById('mouseGlow');
 
-                document.addEventListener('mousemove', (e) => {
-                    const x = e.pageX;
-                    const y = e.pageY;
-                    glowDiv.style.background = `radial-gradient(600px at ${x}px ${y}px, rgba(29, 78, 216, 0.15), transparent 80%)`;
-                });
-            </script>
-            <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
-                <a href="https://aakashkolli.github.io/#about" class="absolute left-0 top-0 block -translate-x-full rounded bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 px-4 py-3 text-sm font-bold uppercase tracking-widest text-white focus-visible:translate-x-0">Skip to Content</a>
-                <div class="lg:flex lg:justify-between lg:gap-4">
-                    <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
-                        <div>
-                            <h1 class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-                                <a href="https://github.com/aakashkolli" class="taviraj-regular">Aakash Kolli</a>
-                            </h1>
-                            <h2 class="mt-3 text-lg taviraj-regular font-medium tracking-tight text-slate-200 sm:text-xl">
-                                Undergraduate Student @ UIUC
-                            </h2>
+            document.addEventListener('mousemove', (e) => {
+                const x = e.pageX;
+                const y = e.pageY;
+                glowDiv.style.background = `radial-gradient(600px at ${x}px ${y}px, rgba(29, 78, 216, 0.15), transparent 80%)`;
+            });
+        </script>
+        <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
+            <a href="https://aakashkolli.github.io/#about" class="absolute left-0 top-0 block -translate-x-full rounded bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 px-4 py-3 text-sm font-bold uppercase tracking-widest text-white focus-visible:translate-x-0">Skip to Content</a>
+            <div class="lg:flex lg:justify-between lg:gap-4">
+                <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
+                    <div>
+                        <h1 class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
+                            <a href="https://github.com/aakashkolli" class="taviraj-regular">Aakash Kolli</a>
+                        </h1>
+                        <h2 class="mt-3 text-lg taviraj-regular font-medium tracking-tight text-slate-200 sm:text-xl">
+                            Undergraduate Student @ UIUC
+                        </h2>
 
-                            <nav class="nav hidden lg:block" aria-label="In-page jump links">
-                                <ul class="mt-16 w-max">
-                                    <li>
-                                        <a class="group flex items-center py-3 active" href="#about"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">About</span></a>
-                                    </li>
-                                    <li>
-                                        <a class="group flex items-center py-3" href="#experience"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Experience</span></a>
-                                    </li>
-                                    <li>
-                                        <a class="group flex items-center py-3" href="#education"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Education</span></a>
-                                    </li>
-                                    <li>
-                                        <a class="group flex items-center py-3" href="#projects"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Projects</span></a>
-                                    </li>
-                                    <li>
-                                        <a class="group flex items-center py-3" href="#certifications"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Certifications</span></a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <ul class="ml-1 mt-8 flex items-center" aria-label="Social media">
-                            <li class="mr-5 shrink-0 text-xs">
-                                <a class="block hover:text-slate-200" href="https://github.com/aakashkolli" target="_blank" rel="noreferrer noopener" aria-label="GitHub (opens in a new tab)" title="GitHub"><span class="sr-only">GitHub</span>
+                        <nav class="nav hidden lg:block" aria-label="In-page jump links">
+                            <ul class="mt-16 w-max">
+                                <li>
+                                    <a class="group flex items-center py-3 active" href="#about"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">About</span></a>
+                                </li>
+                                <li>
+                                    <a class="group flex items-center py-3" href="#experience"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Experience</span></a>
+                                </li>
+                                <li>
+                                    <a class="group flex items-center py-3" href="#education"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Education</span></a>
+                                </li>
+                                <li>
+                                    <a class="group flex items-center py-3" href="#projects"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Projects</span></a>
+                                </li>
+                                <li>
+                                    <a class="group flex items-center py-3" href="#certifications"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Certifications</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <ul class="ml-1 mt-8 flex items-center" aria-label="Social media">
+                        <li class="mr-5 shrink-0 text-xs">
+                            <a class="block hover:text-slate-200" href="https://github.com/aakashkolli" target="_blank" rel="noreferrer noopener" aria-label="GitHub (opens in a new tab)" title="GitHub"><span class="sr-only">GitHub</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-6 w-6" aria-hidden="true">
                                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
                                     </svg>
                                 </a>
-                            </li>
-                            <li class="mr-5 shrink-0 text-xs">
-                                <a class="block hover:text-slate-200" href="https://www.linkedin.com/in/aakash-kolli/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn"><span class="sr-only">LinkedIn</span>
+                        </li>
+                        <li class="mr-5 shrink-0 text-xs">
+                            <a class="block hover:text-slate-200" href="https://www.linkedin.com/in/aakash-kolli/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn"><span class="sr-only">LinkedIn</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
                                         <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
                                     </svg>
                                 </a>
-                            </li>
-                        </ul>
-                    </header>
-                    <main id="content" class="pt-24 lg:w-[52%] lg:py-24">
-                        <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
-                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-                                    About
-                                </h2>
-                            </div>
-                            <div>
-                                <p class="mb-4">
-                                    I’m an undergraduate at the University of Illinois Urbana-Champaign majoring in Statistics & Computer Science. My coding journey began in 7th grade, when I stumbled upon <a href="https://www.youtube.com/watch?v=rfscVS0vtbw"
-                                        target="_blank" rel="noopener" class="text-teal-300 hover:underline">this freeCodeCamp Python course</a>. Since then, I’ve built side projects, contributed to research, and kept chasing questions that push me to think
-                                    more deeply. I enjoy building software that makes sense of messy, real-world data, whether it’s for research, automation, or helping others solve practical problems.
-                                </p>
+                        </li>
+                    </ul>
+                </header>
+                <main id="content" class="pt-24 lg:w-[52%] lg:py-24">
+                    <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
+                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                            <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+                                About
+                            </h2>
+                        </div>
+                        <div>
+                            <p class="mb-4">
+                                I’m an undergraduate at the University of Illinois Urbana-Champaign majoring in Statistics & Computer Science. My coding journey began in 7th grade, when I stumbled upon <a href="https://www.youtube.com/watch?v=rfscVS0vtbw"
+                                    target="_blank" rel="noopener" class="text-teal-300 hover:underline">this freeCodeCamp Python course</a>. Since then, I’ve built side projects, contributed to research, and kept chasing questions that push me to think more
+                                deeply. I enjoy building software that makes sense of messy, real-world data, whether it’s for research, automation, or helping others solve practical problems.
+                            </p>
 
-                            </div>
-                        </section>
-                        <section id="experience" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Work experience">
-                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-                                    Experience
-                                </h2>
-                            </div>
-                            <div>
-                                <ol class="group/list">
-                                    <li class="mb-12">
-                                        <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-                                            <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2" aria-label="2024 to Present">
-                                                May 2025 — August 2025
-                                            </header>
-                                            <div class="z-10 sm:col-span-6">
-                                                <h3 class="font-medium leading-snug text-slate-200">
-                                                    <div>
-                                                        <a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://github.com/urban-toolkit/curio" target="_blank" rel="noreferrer noopener" aria-label="Research Intern at University of Illinois Chicago (opens in a new tab)"><span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span><span>Research Intern ·<!-- -->
+                        </div>
+                    </section>
+                    <section id="experience" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Work experience">
+                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                            <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+                                Experience
+                            </h2>
+                        </div>
+                        <div>
+                            <ol class="group/list">
+                                <li class="mb-12">
+                                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2" aria-label="2024 to Present">
+                                            May 2025 — August 2025
+                                        </header>
+                                        <div class="z-10 sm:col-span-6">
+                                            <h3 class="font-medium leading-snug text-slate-200">
+                                                <div>
+                                                    <a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://github.com/urban-toolkit/curio" target="_blank" rel="noreferrer noopener" aria-label="Research Intern at University of Illinois Chicago (opens in a new tab)"><span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span><span>Research Intern ·<!-- -->
                                                                 <span class="inline-block">University of Illinois Chicago<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
                                                                         <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path>
                                                                     </svg></span></span>
-                                                        </a>
+                                                    </a>
+                                                </div>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">
+                                                Built tool that turns complex Jupyter Notebooks into clean, executable dataflows and visualize their internal dependencies through interactive AST based graphs. Wrote reproducible dataflow tutorials that became part of the project's core learning materials
+                                                and improved onboarding for new users.
+                                            </p>
+                                            <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                                                        Python
                                                     </div>
-                                                </h3>
-                                                <p class="mt-2 text-sm leading-normal">
-                                                    Built tool that turns complex Jupyter Notebooks into clean, executable dataflows and visualize their internal dependencies through interactive AST based graphs. Wrote reproducible dataflow tutorials that became part of the project's core learning materials
-                                                    and improved onboarding for new users.
-                                                </p>
-                                                <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
-                                                            Python
-                                                        </div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
-                                                            TypeScript
-                                                        </div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
-                                                            React
-                                                        </div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                                                        TypeScript
+                                                    </div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                                                        React
+                                                    </div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </li>
-                                    <li class="mb-12">
-                                        <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-                                            <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2" aria-label="July to December 2016">
-                                                May 2024 — July 2024
-                                            </header>
-                                            <div class="z-10 sm:col-span-6">
-                                                <h3 class="font-medium leading-snug text-slate-200">
-                                                    <div>
-                                                        <a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://www.niu.edu/index.shtml" target="_blank" rel="noreferrer noopener" aria-label="Research Intern at Northern Illinois University (opens in a new tab)"><span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span><span>Research Intern ·<!-- -->
+                                    </div>
+                                </li>
+                                <li class="mb-12">
+                                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2" aria-label="July to December 2016">
+                                            May 2024 — July 2024
+                                        </header>
+                                        <div class="z-10 sm:col-span-6">
+                                            <h3 class="font-medium leading-snug text-slate-200">
+                                                <div>
+                                                    <a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://www.niu.edu/index.shtml" target="_blank" rel="noreferrer noopener" aria-label="Research Intern at Northern Illinois University (opens in a new tab)"><span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span><span>Research Intern ·<!-- -->
                                                                 <span class="inline-block">Northern Illinois University<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
                                                                         <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path>
                                                                     </svg></span></span>
-                                                        </a>
-                                                    </div>
-                                                </h3>
-                                                <p class="mt-2 text-sm leading-normal">
-                                                    Worked on Python tool to optimize data workflows, including caching mechanisms for large datasets and interactive reproducibility visualizations, improving efficiency and supporting collaborative analysis.
-                                                </p>
-                                                <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">JupyterLab</div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Anywidget</div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Python</div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Pandas</div>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                                    </a>
+                                                </div>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">
+                                                Worked on Python tool to optimize data workflows, including caching mechanisms for large datasets and interactive reproducibility visualizations, improving efficiency and supporting collaborative analysis.
+                                            </p>
+                                            <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">JupyterLab</div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Anywidget</div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Python</div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Pandas</div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </li>
-                                </ol>
-                            </div>
-                        </section>
-                        <section id="education" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Education">
-                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-                                    Education
-                                </h2>
-                            </div>
-                            <div>
-                                <ul class="group/list">
-                                    <li class="mb-12">
-                                        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-                                            <div class="z-10 sm:order-2 sm:col-span-6">
-                                                <h3>
-                                                    <span class="inline-flex items-baseline font-medium leading-tight text-slate-200 group/link text-base">
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
+                    <section id="education" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Education">
+                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                            <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+                                Education
+                            </h2>
+                        </div>
+                        <div>
+                            <ul class="group/list">
+                                <li class="mb-12">
+                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                        <div class="z-10 sm:order-2 sm:col-span-6">
+                                            <h3>
+                                                <span class="inline-flex items-baseline font-medium leading-tight text-slate-200 group/link text-base">
                                                         <span>University of Illinois Urbana-Champaign</span>
-                                                    </span>
-                                                </h3>
-                                                <p class="mt-2 text-sm leading-normal">Bachelor of Science in Statistics & Computer Science · Urbana, IL</p>
-                                                <p class="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-500">August 2025 — May 2028</p>
-                                                <ul class="mt-4 space-y-3 text-sm text-slate-300">
-                                                    <li><strong>Relevant Coursework:</strong> Discrete Structures, Intro to Computer Science II, Linear Algebra, Calculus III</li>
-                                                    <li><strong>Involvements:</strong> RAG @ UIUC, Financial Engineering Club, ACM SIG AIDA</li>
-                                                    <li><strong>Honors:</strong> Campus Honors Program</li>
-                                                </ul>
-                                            </div>
-                                            <img alt="UIUC Logo" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1" style="object-fit: contain;"
-                                                src="./files/img/uiuc.jpg" />
+                                                </span>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">Bachelor of Science in Statistics & Computer Science · Urbana, IL</p>
+                                            <p class="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-500">August 2025 — May 2028</p>
+                                            <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                                                <li><strong>Relevant Coursework:</strong> Discrete Structures, Intro to Computer Science II, Linear Algebra, Calculus III</li>
+                                                <li><strong>Involvements:</strong> RAG @ UIUC, Financial Engineering Club, ACM SIG AIDA</li>
+                                                <li><strong>Honors:</strong> Campus Honors Program</li>
+                                            </ul>
                                         </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                        <section id="projects" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected projects">
-                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-                                    Projects
-                                </h2>
-                            </div>
-                            <div>
-                                <ul class="group/list">
-                                    <li class="mb-12">
-                                        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-                                            <div class="z-10 sm:order-2 sm:col-span-6">
-                                                <h3>
-                                                    <a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://github.com/aakashkolli/github-timeline" target="_blank" rel="noreferrer noopener" aria-label="GitHub Timeline (opens in a new tab)">
-                                                        <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                                                        <span>GitHub Timeline<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
+                                        <img alt="UIUC Logo" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1" style="object-fit: contain;"
+                                            src="./files/img/uiuc.jpg" />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section id="projects" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected projects">
+                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                            <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+                                Projects
+                            </h2>
+                        </div>
+                        <div>
+                            <ul class="group/list">
+                                <li class="mb-12">
+                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                        <div class="z-10 sm:order-2 sm:col-span-6">
+                                            <h3>
+                                                <a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://github.com/aakashkolli/github-timeline" target="_blank" rel="noreferrer noopener" aria-label="GitHub Timeline (opens in a new tab)">
+                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                                                    <span>GitHub Timeline<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
                                                                 <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path>
                                                             </svg></span>
-                                                    </a>
-                                                </h3>
-                                                <p class="mt-2 text-sm leading-normal">
-                                                    Web app for visualizing any GitHub user's public repositories in a chronological, interactive timeline. View repository details, analytics, and shareable insights at a glance. Explore top languages, stars, forks, and more.
-                                                </p>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-1 h-3 w-3" aria-hidden="true">
-                                                </svg></a>
-                                                <ul class="mt-2 flex flex-wrap" aria-label="Technologies used:">
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">React</div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Express</div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">GitHub API</div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Node.js</div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <img alt="GitHub Timeline project screenshot" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
-                                                srcset="./files/img/github-timeline.png 1x, ./files/img/github-timeline.png 2x" src="./files/img/github-timeline.png" />
-                                        </div>
-                                    </li>
-                                    <li class="mb-12">
-                                        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-                                            <div class="z-10 sm:order-2 sm:col-span-6">
-                                                <h3>
-                                                    <a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://github.com/aakashkolli/nba-clutch-analytics" target="_blank" rel="noreferrer noopener" aria-label="NBA Clutch Analytics Dashboard (opens in a new tab)">
-                                                        <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                                                        <span>NBA Clutch Analytics Dashboard<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
-                                                                <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path>
-                                                            </svg></span>
-                                                    </a>
-                                                </h3>
-                                                <p class="mt-2 text-sm leading-normal">
-                                                    Streamlit-powered dashboard for NBA analytics in clutch situations. Explore player and team performance, compare head-to-head stats, and predict future clutch players with machine learning and interactive visualizations.
-                                                </p>
-                                                <a class="relative mt-2 inline-flex items-center text-sm font-medium text-slate-300 hover:text-teal-300 focus-visible:text-teal-300" href="https://github.com/aakashkolli/nba-clutch-analytics" target="_blank" rel="noreferrer noopener" aria-label="NBA Clutch Analytics stars on GitHub (opens in a new tab)">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-1 h-3 w-3" aria-hidden="true">
-                                                    </svg>
                                                 </a>
-                                                <ul class="mt-2 flex flex-wrap" aria-label="Technologies used:">
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Python</div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Streamlit</div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Plotly</div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Scikit-learn</div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <img alt="NBA Clutch Analytics Dashboard screenshot" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
-                                                srcset="./files/img/nba-clutch.png 1x, ./files/img/nba-clutch.png 2x" src="./files/img/nba-clutch.png" />
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">
+                                                Web app for visualizing any GitHub user's public repositories in a chronological, interactive timeline. View repository details, analytics, and shareable insights at a glance. Explore top languages, stars, forks, and more.
+                                            </p>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-1 h-3 w-3" aria-hidden="true">
+                                                </svg></a>
+                                            <ul class="mt-2 flex flex-wrap" aria-label="Technologies used:">
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">React</div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Express</div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">GitHub API</div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Node.js</div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </li>
-                                    <li class="mb-12">
-                                        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-                                            <div class="z-10 sm:order-2 sm:col-span-6">
-                                                <h3>
-                                                    <span class="inline-flex items-baseline font-medium leading-tight text-slate-200 group/link text-base">
+                                        <img alt="GitHub Timeline project screenshot" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+                                            srcset="./files/img/github-timeline.png 1x, ./files/img/github-timeline.png 2x" src="./files/img/github-timeline.png" />
+                                    </div>
+                                </li>
+                                <li class="mb-12">
+                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                        <div class="z-10 sm:order-2 sm:col-span-6">
+                                            <h3>
+                                                <a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base" href="https://github.com/aakashkolli/nba-clutch-analytics" target="_blank" rel="noreferrer noopener" aria-label="NBA Clutch Analytics Dashboard (opens in a new tab)">
+                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                                                    <span>NBA Clutch Analytics Dashboard<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
+                                                                <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path>
+                                                            </svg></span>
+                                                </a>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">
+                                                Streamlit-powered dashboard for NBA analytics in clutch situations. Explore player and team performance, compare head-to-head stats, and predict future clutch players with machine learning and interactive visualizations.
+                                            </p>
+                                            <a class="relative mt-2 inline-flex items-center text-sm font-medium text-slate-300 hover:text-teal-300 focus-visible:text-teal-300" href="https://github.com/aakashkolli/nba-clutch-analytics" target="_blank" rel="noreferrer noopener" aria-label="NBA Clutch Analytics stars on GitHub (opens in a new tab)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-1 h-3 w-3" aria-hidden="true">
+                                                    </svg>
+                                            </a>
+                                            <ul class="mt-2 flex flex-wrap" aria-label="Technologies used:">
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Python</div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Streamlit</div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Plotly</div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Scikit-learn</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <img alt="NBA Clutch Analytics Dashboard screenshot" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+                                            srcset="./files/img/nba-clutch.png 1x, ./files/img/nba-clutch.png 2x" src="./files/img/nba-clutch.png" />
+                                    </div>
+                                </li>
+                                <li class="mb-12">
+                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                        <div class="z-10 sm:order-2 sm:col-span-6">
+                                            <h3>
+                                                <span class="inline-flex items-baseline font-medium leading-tight text-slate-200 group/link text-base">
                                                         <span>MathWorks Math Modeling Challenge</span>
-                                                    </span>
-                                                </h3>
-                                                <p class="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-500">2024</p>
-                                                <p class="mt-2 text-sm leading-normal">
-                                                    Developed predictive model to forecast long-term housing supply trends using stochastic modeling, probability theory, and machine learning techniques. Authored paper earning Honorable Mention (top 22 of 655 viable papers), winning $1,000 team prize.
-                                                </p>
-                                                <ul class="mt-2 flex flex-wrap" aria-label="Recognition">
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Honorable Mention</div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Top 22 of 655</div>
-                                                    </li>
-                                                    <li class="mr-1.5 mt-2">
-                                                        <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">$1,000 Prize</div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <img alt="MathWorks Math Modeling Challenge" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1" style="object-fit: contain; background-color: white;"
-                                                src="files/img/mathworks.png" />
+                                                </span>
+                                            </h3>
+                                            <p class="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-500">2024</p>
+                                            <p class="mt-2 text-sm leading-normal">
+                                                Developed predictive model to forecast long-term housing supply trends using stochastic modeling, probability theory, and machine learning techniques. Authored paper earning Honorable Mention (top 22 of 655 viable papers), winning $1,000 team prize.
+                                            </p>
+                                            <ul class="mt-2 flex flex-wrap" aria-label="Recognition">
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Honorable Mention</div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Top 22 of 655</div>
+                                                </li>
+                                                <li class="mr-1.5 mt-2">
+                                                    <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">$1,000 Prize</div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                        <section id="certifications" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Certifications">
-                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-                                    Certifications
-                                </h2>
-                            </div>
-                            <div>
-                                <ol class="group/list">
-                                    <li class="mb-12">
-                                        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-                                            <div class="z-10 sm:order-2 sm:col-span-6">
-                                                <h3>
-                                                    <span class="inline-flex items-baseline font-medium leading-tight text-slate-200 group/link text-base">
+                                        <img alt="MathWorks Math Modeling Challenge" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1" style="object-fit: contain; background-color: white;"
+                                            src="files/img/mathworks.png" />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section id="certifications" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Certifications">
+                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                            <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+                                Certifications
+                            </h2>
+                        </div>
+                        <div>
+                            <ol class="group/list">
+                                <li class="mb-12">
+                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                        <div class="z-10 sm:order-2 sm:col-span-6">
+                                            <h3>
+                                                <span class="inline-flex items-baseline font-medium leading-tight text-slate-200 group/link text-base">
                                                         <span>CodePath Certificate in Intermediate Technical Interview Prep</span>
-                                                    </span>
-                                                </h3>
-                                                <p class="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Jun 2025 – Aug 2025</p>
-                                                <p class="mt-2 text-sm leading-normal">
-                                                    Completed intensive program focused on advanced data structures and algorithms for technical interviews.
-                                                </p>
-                                            </div>
-                                            <img alt="CodePath Certificate" loading="lazy" width="80" height="80" decoding="async" data-nimg="1" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1" style="object-fit: contain; margin-left: 2.3rem;"
-                                                src="files/img/codepath.jpg" />
+                                                </span>
+                                            </h3>
+                                            <p class="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Jun 2025 – Aug 2025</p>
+                                            <p class="mt-2 text-sm leading-normal">
+                                                Completed intensive program focused on advanced data structures and algorithms for technical interviews.
+                                            </p>
                                         </div>
-                                    </li>
-                                    <li class="mb-12">
-                                        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-                                            <div class="z-10 sm:order-2 sm:col-span-6">
-                                                <h3>
-                                                    <span class="inline-flex items-baseline font-medium leading-tight text-slate-200 group/link text-base">
+                                        <img alt="CodePath Certificate" loading="lazy" width="80" height="80" decoding="async" data-nimg="1" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1" style="object-fit: contain; margin-left: 2.3rem;"
+                                            src="files/img/codepath.jpg" />
+                                    </div>
+                                </li>
+                                <li class="mb-12">
+                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                                        <div class="z-10 sm:order-2 sm:col-span-6">
+                                            <h3>
+                                                <span class="inline-flex items-baseline font-medium leading-tight text-slate-200 group/link text-base">
                                                         <span>Google Data Analytics Professional Certificate</span>
-                                                    </span>
-                                                </h3>
-                                                <p class="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Jul 2023</p>
-                                                <p class="mt-2 text-sm leading-normal">
-                                                    Learned data analysis fundamentals including data cleaning, visualization, and SQL through Google's comprehensive certification program.
-                                                </p>
-                                            </div>
-                                            <img alt="Google Data Analytics Certificate" loading="lazy" width="100" height="100" decoding="async" data-nimg="1" class="rounded sm:order-1 sm:col-span-2 sm:translate-y-1" style="object-fit: contain; margin-left: 1.6rem;" src="files/img/googlecert.png"
-                                            />
+                                                </span>
+                                            </h3>
+                                            <p class="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Jul 2023</p>
+                                            <p class="mt-2 text-sm leading-normal">
+                                                Learned data analysis fundamentals including data cleaning, visualization, and SQL through Google's comprehensive certification program.
+                                            </p>
                                         </div>
-                                    </li>
-                                </ol>
-                            </div>
-                        </section>
-                        <footer class="pb-16 text-sm text-slate-500 sm:pb-0 text-left">
-                            <p>
-                                Original design by <a href="https://brittanychiang.com/" class="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300" target="_blank" rel="noreferrer noopener" aria-label="Brittany Chiang (opens in a new tab)">Brittany Chiang</a>.
-                                Customized by Aakash Kolli.
-                            </p>
-                        </footer>
-                    </main>
-                    <div class="absolute bottom-0 right-0">
-                        <button class="hover:-text-teal-300 inline-flex items-center px-2 py-4 font-medium text-slate-400 hover:-translate-y-2 focus-visible:text-teal-300" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:R4l6:" data-state="closed">
+                                        <img alt="Google Data Analytics Certificate" loading="lazy" width="100" height="100" decoding="async" data-nimg="1" class="rounded sm:order-1 sm:col-span-2 sm:translate-y-1" style="object-fit: contain; margin-left: 1.6rem;" src="files/img/googlecert.png"
+                                        />
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
+                    <footer class="pb-16 text-sm text-slate-500 sm:pb-0 text-left">
+                        <p>
+                            Original design by <a href="https://brittanychiang.com/" class="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300" target="_blank" rel="noreferrer noopener" aria-label="Brittany Chiang (opens in a new tab)">Brittany Chiang</a>.
+                            Customized by Aakash Kolli.
+                        </p>
+                    </footer>
+                </main>
+                <div class="absolute bottom-0 right-0">
+                    <button class="hover:-text-teal-300 inline-flex items-center px-2 py-4 font-medium text-slate-400 hover:-translate-y-2 focus-visible:text-teal-300" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:R4l6:" data-state="closed">
                         </button>
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <script>
