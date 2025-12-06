@@ -195,6 +195,24 @@
         [data-theme="light"] .lg\:group-hover\:drop-shadow-lg {
             filter: none !important;
         }
+        /* Navigation Active State */
+        
+        .nav a.active .nav-indicator {
+            width: 4rem;
+            background-color: #e2e8f0 !important;
+        }
+        
+        .nav a.active .nav-text {
+            color: #e2e8f0 !important;
+        }
+        
+        [data-theme="light"] .nav a.active .nav-indicator {
+            background-color: var(--text-primary) !important;
+        }
+        
+        [data-theme="light"] .nav a.active .nav-text {
+            color: var(--text-primary) !important;
+        }
         /* Hide default scrollbar */
         
         html {
@@ -295,12 +313,15 @@
                                     </svg>
                                 </a>
                         </li>
-                        <li class="mr-5 shrink-0 text-xs">
-                            <a class="block hover:text-slate-200" href="mailto:akolli5@illinois.edu" aria-label="Email akolli5@illinois.edu" title="Email"><span class="sr-only">Email</span>
+                        <li class="mr-5 shrink-0 text-xs relative">
+                            <a id="emailIcon" class="block hover:text-slate-200 relative" href="mailto:akolli5@illinois.edu" aria-label="Email akolli5@illinois.edu"><span class="sr-only">Email</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
                                         <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                                         <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                                     </svg>
+                                    <span id="emailTooltip" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-slate-200 px-3 py-1.5 rounded text-xs whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200 shadow-lg border border-slate-700">
+                                        akolli5@illinois.edu
+                                    </span>
                                 </a>
                         </li>
                     </ul>
@@ -644,6 +665,61 @@
             const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (window.scrollY / windowHeight) * 100;
             scrollProgress.style.width = scrolled + '%';
+        });
+
+        // Email Tooltip - Show on Hover
+        const emailIcon = document.getElementById('emailIcon');
+        const emailTooltip = document.getElementById('emailTooltip');
+
+        if (emailIcon && emailTooltip) {
+            emailIcon.addEventListener('mouseenter', () => {
+                emailTooltip.style.opacity = '1';
+            });
+
+            emailIcon.addEventListener('mouseleave', () => {
+                emailTooltip.style.opacity = '0';
+            });
+        }
+
+        // Navigation Active State Management
+        const navLinks = document.querySelectorAll('.nav a');
+        const sections = document.querySelectorAll('section[id]');
+
+        // Function to update active navigation link
+        function updateActiveNav() {
+            let current = '';
+            const scrollPosition = window.scrollY + 100; // offset for better triggering
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Update on scroll
+        window.addEventListener('scroll', updateActiveNav);
+        
+        // Update on page load
+        updateActiveNav();
+
+        // Handle click navigation
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
         });
     </script>
 </body>
