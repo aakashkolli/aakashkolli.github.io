@@ -5,23 +5,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Taviraj:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        html,
-        body,
-        .taviraj-regular,
-        .font-sans,
-        .font-medium,
-        .font-bold,
-        .font-semibold,
-        .font-normal,
-        .font-light,
-        .font-thin,
-        .font-extralight,
-        .font-extrabold,
-        .font-black {
-            font-family: 'Taviraj', serif !important;
-        }
-    </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <script>
@@ -53,6 +36,21 @@
             font-family: "Taviraj", serif;
             font-weight: 400;
             font-style: normal;
+        }
+
+        html,
+        body,
+        .font-sans,
+        .font-medium,
+        .font-bold,
+        .font-semibold,
+        .font-normal,
+        .font-light,
+        .font-thin,
+        .font-extralight,
+        .font-extrabold,
+        .font-black {
+            font-family: 'Taviraj', serif !important;
         }
         /* Theme Variables */
         
@@ -201,7 +199,7 @@
 </head>
 
 <body class="bg-slate-900 leading-relaxed text-slate-400 antialiased taviraj-regular" style="background-color: var(--bg-primary); color: var(--text-secondary);">
-    <!-- Theme Toggle Button -->
+    <!-- Sun and Moon SVG icons from heroicons.com (makers of Tailwind CSS) -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
@@ -280,11 +278,8 @@
                         </div>
                         <div>
                             <p class="mb-4">
-                                I’m an undergraduate at the University of Illinois Urbana-Champaign majoring in Statistics & Computer Science. My coding journey began in 7th grade, when I stumbled upon <a href="https://www.youtube.com/watch?v=rfscVS0vtbw"
-                                    target="_blank" rel="noopener" class="text-teal-300 hover:underline">this freeCodeCamp Python course</a>. Since then, I’ve built side projects, contributed to research, and kept chasing questions that push me to think more
-                                deeply. I enjoy building software that makes sense of messy, real-world data, whether it’s for research, automation, or helping others solve practical problems.
+                                I'm an undergraduate at the University of Illinois Urbana-Champaign majoring in Statistics & Computer Science. My coding journey began in 7th grade when I stumbled upon <a href="https://www.youtube.com/watch?v=rfscVS0vtbw" class="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300" target="_blank" rel="noreferrer noopener">this freeCodeCamp Python course</a>. Since then, I've followed my curiosity through personal projects, research, and classes, always seeking opportunities that make me think critically and approach problems from new angles. I enjoy building software that brings clarity to real-world data, whether it's for research, automation, or solving practical problems for others.
                             </p>
-
                         </div>
                     </section>
                     <section id="experience" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Work experience">
@@ -330,8 +325,6 @@
                                                     <div class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
                                                         React
                                                     </div>
-                                                </li>
-                                                <li class="mr-1.5 mt-2">
                                                 </li>
                                             </ul>
                                         </div>
@@ -565,13 +558,8 @@
                         </p>
                     </footer>
                 </main>
-                <div class="absolute bottom-0 right-0">
-                    <button class="hover:-text-teal-300 inline-flex items-center px-2 py-4 font-medium text-slate-400 hover:-translate-y-2 focus-visible:text-teal-300" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:R4l6:" data-state="closed">
-                        </button>
-                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <script>
