@@ -195,10 +195,38 @@
         [data-theme="light"] .lg\:group-hover\:drop-shadow-lg {
             filter: none !important;
         }
+        /* Hide default scrollbar */
+        
+        html {
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+        
+        html::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+        /* Scroll Progress Indicator */
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+            z-index: 9999;
+            transition: width 0.1s ease-out;
+            box-shadow: 0 0 10px var(--accent);
+        }
     </style>
 </head>
 
 <body class="bg-slate-900 leading-relaxed text-slate-400 antialiased taviraj-regular" style="background-color: var(--bg-primary); color: var(--text-secondary);">
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
     <!-- Sun and Moon SVG icons from heroicons.com (makers of Tailwind CSS) -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -607,6 +635,15 @@
                 sunIcon.style.display = 'none';
                 moonIcon.style.display = 'block';
             }
+        });
+
+        // Scroll Progress Indicator
+        const scrollProgress = document.getElementById('scrollProgress');
+
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
         });
     </script>
 </body>
