@@ -21,9 +21,15 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
 dist-ssr
 *.local
+
+# Build output
+/dist
+/assets
+
+# Environment variables
+.env*
 
 # Editor directories and files
 .vscode/*
