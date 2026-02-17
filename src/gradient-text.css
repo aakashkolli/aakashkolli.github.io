@@ -1,0 +1,78 @@
+/* UIUC blue-orange animated gradient */
+.uiuc-gradient-clip {
+  background: linear-gradient(90deg, #FF5F05 0%, #2563eb 25%, #FF5F05 50%, #2563eb 75%, #FF5F05 100%);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow-symmetric 3s linear infinite;
+  transition: opacity 0.5s;
+}
+
+.uiuc-gradient-solid {
+  color: inherit;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  transition: color 0.5s;
+}
+
+.gradient-clip {
+  background: linear-gradient(90deg,
+      #ff4baf 0%,
+      /* hot pink */
+      #ff4b4b 12%,
+      /* vivid red */
+      #ff9900 24%,
+      /* tangerine orange */
+      #ffd700 36%,
+      /* gold */
+      #ff4baf 50%,
+      /* magenta center */
+      #a259ff 64%,
+      /* deep purple */
+      #b388ff 76%,
+      /* lavender */
+      #ff4baf 88%,
+      /* hot pink again */
+      #ff4b4b 100%
+      /* vivid red end */
+    );
+  background-size: 300% 100%;
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow-symmetric 3s linear infinite;
+  transition: opacity 0.5s;
+}
+
+@keyframes gradient-flow-symmetric {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 0%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.gradient-fadeout {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.gradient-solid {
+  color: inherit;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  /* Do NOT unset -webkit-text-fill-color, let it fallback to color */
+  transition: color 0.5s;
+}
