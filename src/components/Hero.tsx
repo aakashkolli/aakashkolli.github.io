@@ -52,7 +52,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-8 italic">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-6 italic">
             <span
               style={{ cursor: 'pointer', display: 'inline-block' }}
             >
@@ -61,8 +61,8 @@ const Hero = () => {
               ))}
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-md leading-relaxed mb-12">
-            Stats + CS at{' '}
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-md leading-relaxed mb-8">
+            Stats + CS @{' '}
             <span
               style={{ cursor: 'pointer', display: 'inline-block' }}
             >
@@ -74,7 +74,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="flex flex-wrap gap-4 text-base"
+          className="flex flex-wrap gap-5 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -83,27 +83,27 @@ const Hero = () => {
             href="https://github.com/aakashkolli"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
+            className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors text-lg"
           >
-            <Github className="w-4 h-4" />
+            <Github className="w-6 h-6" />
             GitHub
           </a>
           <a
             href="https://linkedin.com/in/aakash-kolli"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
+            className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors text-lg"
           >
-            <Linkedin className="w-4 h-4" />
+            <Linkedin className="w-6 h-6" />
             LinkedIn
           </a>
           <Dialog open={emailDialogOpen} onOpenChange={setEmailDialogOpen}>
             <DialogTrigger asChild>
               <button
-                className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors focus:outline-none"
+                className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors focus:outline-none text-lg"
                 aria-label="Contact via email"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-6 h-6" />
                 Email
               </button>
             </DialogTrigger>
