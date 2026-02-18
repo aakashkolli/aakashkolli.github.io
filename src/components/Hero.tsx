@@ -148,21 +148,23 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <motion.button
-        aria-label="Scroll down"
-        onClick={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground hover:text-muted-foreground transition-colors"
-        initial={{ opacity: 0, y: -8 }}
-        animate={scrolled ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: scrolled ? 0 : 1.2 }}
-      >
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+      <div className="absolute bottom-8 left-0 w-full flex justify-center">
+        <motion.button
+          aria-label="Scroll down"
+          onClick={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })}
+          className="text-foreground hover:text-muted-foreground transition-colors"
+          initial={{ opacity: 0, y: -8 }}
+          animate={scrolled ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: scrolled ? 0 : 1.2 }}
         >
-          <ChevronDown className="w-12 h-12" strokeWidth={1.5} />
-        </motion.div>
-      </motion.button>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ChevronDown className="w-12 h-12" strokeWidth={1.5} />
+          </motion.div>
+        </motion.button>
+      </div>
     </section>
   );
 };
