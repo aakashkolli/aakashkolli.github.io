@@ -23,7 +23,7 @@ const education: EducationItem[] = [
     {
         school: "waubonsie valley high school",
         period: "2021 – 2025",
-        activities: "warriors who code - president, science olympiad - vp, skillsusa - vp, math team, key club, cross country, track & field",
+        activities: "warriors who code (president), science olympiad (vp), skillsusa (vp), math team, key club, cross country, track & field",
         honors: "outstanding student in computer science",
         logoPath: "/logos/wvhs.png", // Place logo at: public/logos/wvhs.png
     },

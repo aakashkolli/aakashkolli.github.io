@@ -167,7 +167,7 @@ const Hero = () => {
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-10 h-10" strokeWidth={1.5} />
+          <ChevronDown className="w-12 h-12" strokeWidth={1.5} />
         </motion.div>
       </motion.button>
     </section>
