@@ -52,7 +52,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-6 italic">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-6">
             <span
               style={{ cursor: 'pointer', display: 'inline-block' }}
             >
