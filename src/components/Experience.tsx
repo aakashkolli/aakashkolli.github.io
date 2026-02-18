@@ -10,31 +10,31 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    role: "software engineer",
-    org: "illinois business consulting",
-    period: "feb 2026 – present",
-    blurb: "infra tech team, building real-time consultant staffing platform",
+    role: "Software Engineer",
+    org: "Illinois Business Consulting",
+    period: "Feb 2026 – Present",
+    blurb: "Infra tech team, building real-time consultant staffing platform",
     logoPath: "/logos/ibc.png",
   },
   {
-    role: "machine learning & ai intern",
-    org: "university of illinois urbana-champaign",
-    period: "jan 2026 – present",
-    blurb: "rag chatbot for new degree program website",
+    role: "Machine Learning & AI Intern",
+    org: "University of Illinois Urbana-Champaign",
+    period: "Jan 2026 – Present",
+    blurb: "RAG chatbot for new degree program website",
     logoPath: "/logos/uiuc.png",
   },
   {
-    role: "research intern",
-    org: "university of illinois chicago",
-    period: "may 2025 – aug 2025",
-    blurb: "urban visual analytics research",
+    role: "Research Intern",
+    org: "University of Illinois Chicago",
+    period: "May 2025 – Aug 2025",
+    blurb: "Urban visual analytics research",
     logoPath: "/logos/uic.png",
   },
   {
-    role: "research intern",
-    org: "northern illinois university",
-    period: "may 2024 – july 2024",
-    blurb: "jupyter notebooks research",
+    role: "Research Intern",
+    org: "Northern Illinois University",
+    period: "May 2024 – Jul 2024",
+    blurb: "Jupyter Notebooks research",
     logoPath: "/logos/niu.png",
   },
 ];
@@ -112,7 +112,7 @@ const Experience = () => {
           className="mb-12"
         >
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            experience
+            Experience
           </h2>
         </motion.div>
 

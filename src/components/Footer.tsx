@@ -7,13 +7,13 @@ const Footer = () => {
         </p>
         <div className="flex gap-6">
           <a href="https://github.com/aakashkolli" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            github
+            GitHub
           </a>
           <a href="https://linkedin.com/in/aakash-kolli" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            linkedin
+            LinkedIn
           </a>
           <a href="mailto:akolli5@illinois.edu" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            email
+            Email
           </a>
         </div>
       </div>

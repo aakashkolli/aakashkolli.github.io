@@ -12,26 +12,26 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "ml for european options",
+    title: "ML for European Options",
     description:
       "ML-powered options pricing and volatility modeling for SPX contracts - Financial Engineering Club, Fall 2025.",
-    stack: ["python", "scikit-learn", "black-scholes", "streamlit"],
+    stack: ["Python", "Scikit-learn", "Black-Scholes", "Streamlit"],
     github: "https://github.com/jasonydog9/FEC-European-options-7",
     imagePath: "/projects/quant.png", // Place image at: public/projects/quant.png
   },
   {
-    title: "arden",
+    title: "Arden",
     description:
       "AI copilot for psychiatric assessment, fusing emotion detection and crisis keyword analysis.",
-    stack: ["python", "react", "typescript", "livekit", "supabase"],
+    stack: ["Python", "React", "TypeScript", "LiveKit", "Supabase"],
     github: "https://github.com/yyardi/nexhacks",
     imagePath: "/projects/arden.png",
   },
   {
-    title: "quantitative trading engine",
+    title: "Quantitative Trading Engine",
     description:
-      "event-driven mean reversion system with modular risk management, z-score signal generation, slippage modeling, and transactional trade persistence.",
-    stack: ["python", "postgresql", "docker", "yfinance"],
+      "Event-driven mean reversion system with modular risk management, z-score signal generation, slippage modeling, and transactional trade persistence.",
+    stack: ["Python", "PostgreSQL", "Docker", "yfinance"],
     // github: "https://github.com",
     // imagePath: "/projects/trading.png",
   }
@@ -49,7 +49,7 @@ const Projects = () => {
           className="mb-12"
         >
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            projects
+            Projects
           </h2>
         </motion.div>
 
@@ -63,8 +63,8 @@ const Projects = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
             >
-              {/* image preview for arden and quantitative researcher only */}
-              {project.title !== 'quantitative trading engine' && (
+              {/* image preview — only shown for projects with an imagePath */}
+              {project.imagePath && (
                 <div className="w-full aspect-[16/10] bg-muted border-b border-border flex items-center justify-center overflow-hidden">
                   {project.imagePath ? (
                     <img

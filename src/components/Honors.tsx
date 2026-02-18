@@ -21,7 +21,7 @@ const Honors = () => {
         >
           <p className="font-mono text-xs text-primary tracking-wider uppercase mb-3">Recognition</p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Honors & certifications
+            Honors & Certifications
           </h2>
         </motion.div>
 

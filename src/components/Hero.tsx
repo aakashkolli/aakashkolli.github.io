@@ -45,7 +45,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pb-24 relative">
+    <section className="min-h-screen flex items-center justify-center pb-16 relative">
       <div className="container-narrow w-full">
         <motion.div
           initial={{ opacity: 0 }}
@@ -53,27 +53,20 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-8 italic">
-            hey, it's{' '}
             <span
-              className={hovered ? 'gradient-clip' : 'gradient-solid'}
               style={{ cursor: 'pointer', display: 'inline-block' }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
             >
-              {'Aakash'.split('').map((char, i) => (
-                <span key={i} style={{ display: 'inline-block' }}>{char}</span>
+              {'Aakash Kolli'.split('').map((char, i) => (
+                <span key={i} style={{ display: 'inline-block' }}>{char === ' ' ? '\u00a0' : char}</span>
               ))}
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-md leading-relaxed mb-12">
-            stats + cs @{' '}
+            Stats + CS at{' '}
             <span
-              className={uiucHovered ? 'uiuc-gradient-clip' : 'uiuc-gradient-solid'}
               style={{ cursor: 'pointer', display: 'inline-block' }}
-              onMouseEnter={handleUiucEnter}
-              onMouseLeave={handleUiucLeave}
             >
-              {'uiuc'.split('').map((char, i) => (
+              {'UIUC'.split('').map((char, i) => (
                 <span key={i} style={{ display: 'inline-block' }}>{char}</span>
               ))}
             </span>
@@ -93,7 +86,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
           >
             <Github className="w-4 h-4" />
-            github
+            GitHub
           </a>
           <a
             href="https://linkedin.com/in/aakash-kolli"
@@ -102,7 +95,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
           >
             <Linkedin className="w-4 h-4" />
-            linkedin
+            LinkedIn
           </a>
           <Dialog open={emailDialogOpen} onOpenChange={setEmailDialogOpen}>
             <DialogTrigger asChild>
@@ -111,7 +104,7 @@ const Hero = () => {
                 aria-label="Contact via email"
               >
                 <Mail className="w-4 h-4" />
-                email
+                Email
               </button>
             </DialogTrigger>
             <DialogContent>

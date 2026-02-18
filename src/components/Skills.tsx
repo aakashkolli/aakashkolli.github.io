@@ -79,7 +79,7 @@ const Skills = () => {
           className="mb-12"
         >
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            skills
+            Skills
           </h2>
         </motion.div>
 

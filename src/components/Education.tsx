@@ -12,19 +12,19 @@ interface EducationItem {
 
 const education: EducationItem[] = [
     {
-        school: "university of illinois urbana-champaign",
-        degree: "bachelor of science in statistics & computer science",
+        school: "University of Illinois Urbana-Champaign",
+        degree: "Bachelor of Science in Statistics & Computer Science",
         period: "2025 – 2028",
-        coursework: "data structures & algorithms, computer architecture, probability, linear algebra",
-        activities: "illinois business consulting, sigrobotics, center for health informatics, financial engineering club, gto illini",
-        honors: "chancellor's scholar",
+        coursework: "Data Structures & Algorithms, Computer Architecture, Probability, Linear Algebra",
+        activities: "Illinois Business Consulting, SIGRobotics, Center for Health Informatics, Financial Engineering Club, GTO Illini",
+        honors: "Chancellor's Scholar",
         logoPath: "/logos/uiuc.png",
     },
     {
-        school: "waubonsie valley high school",
+        school: "Waubonsie Valley High School",
         period: "2021 – 2025",
-        activities: "warriors who code (president), science olympiad (vp), skillsusa (vp), math team, key club, cross country, track & field",
-        honors: "outstanding student in computer science",
+        activities: "Warriors Who Code (President), Science Olympiad (VP), SkillsUSA (VP), Math Team, Key Club, Cross Country, Track & Field",
+        honors: "Outstanding Student in Computer Science",
         logoPath: "/logos/wvhs.png", // Place logo at: public/logos/wvhs.png
     },
 ];
@@ -82,17 +82,17 @@ const EducationCard = ({ item, index }: { item: EducationItem; index: number }) 
                     <div className="space-y-2 text-sm text-muted-foreground">
                         {item.coursework && (
                             <p>
-                                <span className="font-medium text-foreground">coursework:</span> {item.coursework}
+                                <span className="font-medium text-foreground">Coursework:</span> {item.coursework}
                             </p>
                         )}
                         {item.activities && (
                             <p>
-                                <span className="font-medium text-foreground">activities:</span> {item.activities}
+                                <span className="font-medium text-foreground">Activities:</span> {item.activities}
                             </p>
                         )}
                         {item.honors && (
                             <p>
-                                <span className="font-medium text-foreground">honors:</span> {item.honors}
+                                <span className="font-medium text-foreground">Honors:</span> {item.honors}
                             </p>
                         )}
                     </div>
@@ -114,7 +114,7 @@ const Education = () => {
                     className="mb-12"
                 >
                     <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-                        education
+                        Education
                     </h2>
                 </motion.div>
 
