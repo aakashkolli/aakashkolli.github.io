@@ -74,7 +74,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="flex flex-wrap gap-4 text-base"
+          className="flex flex-wrap gap-4 text-xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -85,7 +85,7 @@ const Hero = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
           >
-            <Github className="w-4 h-4" />
+            <Github className="w-6 h-6" />
             GitHub
           </a>
           <a
@@ -94,7 +94,7 @@ const Hero = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
           >
-            <Linkedin className="w-4 h-4" />
+            <Linkedin className="w-6 h-6" />
             LinkedIn
           </a>
           <Dialog open={emailDialogOpen} onOpenChange={setEmailDialogOpen}>
@@ -103,7 +103,7 @@ const Hero = () => {
                 className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors focus:outline-none"
                 aria-label="Contact via email"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-6 h-6" />
                 Email
               </button>
             </DialogTrigger>
