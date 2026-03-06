@@ -1,4 +1,3 @@
-/* UIUC blue-orange animated gradient */
 .uiuc-gradient-clip {
   background: linear-gradient(90deg, #FF5F05 0%, #2563eb 25%, #FF5F05 50%, #2563eb 75%, #FF5F05 100%);
   background-size: 300% 100%;
@@ -21,23 +20,15 @@
 .gradient-clip {
   background: linear-gradient(90deg,
       #ff4baf 0%,
-      /* hot pink */
       #ff4b4b 12%,
-      /* vivid red */
       #ff9900 24%,
-      /* tangerine orange */
       #ffd700 36%,
-      /* gold */
       #ff4baf 50%,
-      /* magenta center */
       #a259ff 64%,
-      /* deep purple */
       #b388ff 76%,
-      /* lavender */
       #ff4baf 88%,
-      /* hot pink again */
       #ff4b4b 100%
-      /* vivid red end */
+      
     );
   background-size: 300% 100%;
   background-size: 300% 100%;

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+
 import {
   PythonIcon,
   CPPIcon,
@@ -9,20 +9,21 @@ import {
   SQLIcon,
   ReactIcon,
   NodeJSIcon,
+  FastAPIIcon,
   FlaskIcon,
-  SocketIOIcon,
-  LiveKitIcon,
   PyTorchIcon,
-  StreamlitIcon,
+  LangChainIcon,
+  PydanticIcon,
   GitIcon,
   DockerIcon,
+  GitHubActionsIcon,
   GCPIcon,
-  AzureIcon,
+  TerraformIcon,
   SupabaseIcon,
-  RenderIcon,
-  JupyterIcon,
+  PrometheusIcon,
+  RIcon,
+  AWSIcon,
 } from "./icons";
-import { AWSIcon } from "./icons/Languages";
 
 interface Skill {
   name: string;
@@ -35,11 +36,12 @@ const categories = [
     items: [
       { name: "Python", Icon: PythonIcon },
       { name: "C++", Icon: CPPIcon },
-      { name: "Java", Icon: JavaIcon },
+      { name: "SQL", Icon: SQLIcon },
+      { name: "R", Icon: RIcon },   
       { name: "JavaScript", Icon: JavaScriptIcon },
       { name: "TypeScript", Icon: TypeScriptIcon },
+      { name: "Java", Icon: JavaIcon },
       { name: "MATLAB", Icon: MATLABIcon },
-      { name: "SQL", Icon: SQLIcon },
     ],
   },
   {
@@ -47,24 +49,24 @@ const categories = [
     items: [
       { name: "React", Icon: ReactIcon },
       { name: "Node.js", Icon: NodeJSIcon },
+      { name: "FastAPI", Icon: FastAPIIcon },
       { name: "Flask", Icon: FlaskIcon },
-      { name: "Socket.IO", Icon: SocketIOIcon },
-      { name: "LiveKit", Icon: LiveKitIcon },
       { name: "PyTorch", Icon: PyTorchIcon },
-      { name: "Streamlit", Icon: StreamlitIcon },
+      { name: "LangChain", Icon: LangChainIcon },
+      { name: "Pydantic", Icon: PydanticIcon },
     ],
   },
   {
-    title: "developer tools",
+    title: "developer & cloud tools",
     items: [
       { name: "Git", Icon: GitIcon },
       { name: "Docker", Icon: DockerIcon },
+      { name: "GitHub Actions", Icon: GitHubActionsIcon },
       { name: "AWS", Icon: AWSIcon },
       { name: "GCP", Icon: GCPIcon },
-      { name: "Azure", Icon: AzureIcon },
+      { name: "Terraform", Icon: TerraformIcon },
       { name: "Supabase", Icon: SupabaseIcon },
-      { name: "Render", Icon: RenderIcon },
-      { name: "Jupyter", Icon: JupyterIcon },
+      { name: "Prometheus", Icon: PrometheusIcon },
     ],
   },
 ];
@@ -73,32 +75,19 @@ const Skills = () => {
   return (
     <section id="skills" className="section-padding border-t border-border">
       <div className="container-narrow">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12"
-        >
+        <div className="mb-12 fade-in">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
             Skills
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {categories.map((cat, i) => (
-            <motion.div
-              key={cat.title}
-              className="card-surface p-6"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-            >
+            <div key={cat.title} className="card-surface p-6 fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
               <h3 className="font-mono text-xs text-muted-foreground tracking-wider uppercase mb-4">
                 {cat.title}
               </h3>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-4 gap-3">
                 {cat.items.map((item) => (
                   <div
                     key={item.name}
@@ -113,7 +102,7 @@ const Skills = () => {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

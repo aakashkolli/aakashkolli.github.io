@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface ExperienceItem {
   role: string;
@@ -40,43 +40,37 @@ const experiences: ExperienceItem[] = [
 ];
 
 const ExperienceCard = ({ item, index }: { item: ExperienceItem; index: number }) => {
+  const [logoError, setLogoError] = useState(false);
+  const isUICLogo = item.logoPath?.includes("uic.png");
+
   return (
-    <motion.div
-      className="card-surface p-6 md:p-8"
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+    <div
+      className="card-surface p-6 md:p-8 fade-in"
+      style={{ animationDelay: `${index * 0.08}s` }}
     >
       <div className="flex items-start gap-4">
         {/* Logo - SVGs use <object>, others use <img> */}
         <div
           className={
             `shrink-0 flex items-center justify-center overflow-hidden ` +
-            (item.logoPath && item.logoPath.includes('uic.png') ? 'w-16 h-16 -ml-2' : 'w-12 h-12')
+            (isUICLogo ? "w-16 h-16 -ml-2" : "w-12 h-12")
           }
         >
-          {item.logoPath ? (
+          {item.logoPath && !logoError ? (
             item.logoPath.endsWith('.svg') ? (
               <object
                 data={item.logoPath}
                 type="image/svg+xml"
-                className={item.logoPath.includes('uic.png') ? 'w-20 h-20 object-contain p-0' : 'w-full h-full object-contain p-1'}
+                className={isUICLogo ? "w-20 h-20 object-contain p-0" : "w-full h-full object-contain p-1"}
                 aria-label={`${item.org} logo`}
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.parentElement!.innerHTML = '<span class="text-xs text-muted-foreground font-mono">logo</span>';
-                }}
+                onError={() => setLogoError(true)}
               />
             ) : (
               <img
                 src={item.logoPath}
                 alt={`${item.org} logo`}
-                className={item.logoPath.includes('uic.png') ? 'w-20 h-20 object-contain p-0' : 'w-full h-full object-contain p-1'}
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.parentElement!.innerHTML = '<span class=\"text-xs text-muted-foreground font-mono\">logo</span>';
-                }}
+                className={isUICLogo ? "w-20 h-20 object-contain p-0" : "w-full h-full object-contain p-1"}
+                onError={() => setLogoError(true)}
               />
             )
           ) : (
@@ -96,7 +90,7 @@ const ExperienceCard = ({ item, index }: { item: ExperienceItem; index: number }
           <p className="text-muted-foreground text-sm leading-relaxed">{item.blurb}</p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -104,17 +98,11 @@ const Experience = () => {
   return (
     <section id="experience" className="section-padding border-t border-border">
       <div className="container-narrow">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12"
-        >
+        <div className="mb-12 fade-in">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
             Experience
           </h2>
-        </motion.div>
+        </div>
 
         <div className="space-y-4">
           {experiences.map((item, i) => (
