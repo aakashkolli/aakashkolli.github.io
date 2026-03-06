@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, ExternalLink } from "lucide-react";
+import { IconGithub, IconExternalLink } from "@/components/icons/nav-icons";
 
 interface Project {
   title: string;
@@ -75,7 +75,7 @@ const projects: Project[] = [
                   className="text-muted-foreground hover:text-foreground transition-colors"
                   aria-label={`${project.title} source code`}
                 >
-                  <Github className="w-4 h-4" />
+                  <IconGithub className="w-4 h-4" />
                 </a>
               )}
               {project.demo && (
@@ -86,7 +86,7 @@ const projects: Project[] = [
                   className="text-muted-foreground hover:text-foreground transition-colors"
                   aria-label={`${project.title} live demo`}
                 >
-                  <ExternalLink className="w-4 h-4" />
+                  <IconExternalLink className="w-4 h-4" />
                 </a>
               )}
             </div>

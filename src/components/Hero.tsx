@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
+import { IconGithub, IconLinkedin, IconMail, IconChevronDown } from "@/components/icons/nav-icons";
 import { useTypewriter } from "@/hooks/use-typewriter";
 
 const SUBTITLE = "Stats + CS at UIUC";
@@ -36,12 +36,12 @@ const Hero = () => {
 
         <div className="flex flex-wrap gap-4 text-xl justify-center fade-in delay-200">
           <a
-            href="https://github.c          om/aakashkolli"
+            href="https://github.com/aakashkolli"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
           >
-            <Github className="w-6 h-6" />
+            <IconGithub className="w-6 h-6" />
             GitHub
           </a>
           <a
@@ -50,7 +50,7 @@ const Hero = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
           >
-            <Linkedin className="w-6 h-6" />
+            <IconLinkedin className="w-6 h-6" />
             LinkedIn
           </a>
           <a
@@ -58,7 +58,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
             aria-label={`Send an email to ${email}`}
           >
-            <Mail className="w-6 h-6" />
+            <IconMail className="w-6 h-6" />
             Email
           </a>
         </div>
@@ -72,7 +72,7 @@ const Hero = () => {
           style={{ transition: "opacity .5s ease, transform .5s ease", transitionDelay: scrolled ? "0s" : "1.2s" }}
         >
           <div className="chev-bounce">
-            <ChevronDown className="w-12 h-12" strokeWidth={1.5} />
+            <IconChevronDown className="w-12 h-12" />
           </div>
         </button>
       </div>

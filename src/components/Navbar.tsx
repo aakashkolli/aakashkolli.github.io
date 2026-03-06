@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Sun, Moon } from "lucide-react";
+import { IconSun, IconMoon } from "@/components/icons/nav-icons";
 import { useTheme } from "@/hooks/use-theme";
 
 const SECTIONS = ["experience", "projects", "skills", "education"] as const;
@@ -8,11 +8,6 @@ const LABELS: Record<string, string> = {
   projects: "Projects",
   skills: "Skills",
   education: "Education",
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: -10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
 };
 
 const Navbar = () => {
@@ -86,7 +81,7 @@ const Navbar = () => {
           ))}
 
           <button onClick={toggle} aria-label="Toggle theme" className="link text-muted-foreground hover:text-foreground transition-colors">
-            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            {theme === "dark" ? <IconSun className="w-4 h-4" /> : <IconMoon className="w-4 h-4" />}
           </button>
         </nav>
       </div>

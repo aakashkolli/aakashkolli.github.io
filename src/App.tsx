@@ -1,15 +1,25 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import { Suspense, lazy } from "react";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+
+const Experience = lazy(() => import("./components/Experience"));
+const Projects = lazy(() => import("./components/Projects"));
+const Skills = lazy(() => import("./components/Skills"));
+const Education = lazy(() => import("./components/Education"));
+const Footer = lazy(() => import("./components/Footer"));
 
 const App = () => (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Index />} />
-      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  </BrowserRouter>
+  <main className="min-h-screen bg-background">
+    <Navbar />
+    <Hero />
+    <Suspense fallback={null}>
+      <Experience />
+      <Projects />
+      <Skills />
+      <Education />
+      <Footer />
+    </Suspense>
+  </main>
 );
 
 export default App;
