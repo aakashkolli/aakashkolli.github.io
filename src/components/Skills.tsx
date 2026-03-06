@@ -22,6 +22,7 @@ import {
   RenderIcon,
   JupyterIcon,
 } from "./icons";
+import { AWSIcon } from "./icons/Languages";
 
 interface Skill {
   name: string;
@@ -58,6 +59,7 @@ const categories = [
     items: [
       { name: "Git", Icon: GitIcon },
       { name: "Docker", Icon: DockerIcon },
+      { name: "AWS", Icon: AWSIcon },
       { name: "GCP", Icon: GCPIcon },
       { name: "Azure", Icon: AzureIcon },
       { name: "Supabase", Icon: SupabaseIcon },

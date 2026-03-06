@@ -52,17 +52,17 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-6">
-            <span
-              style={{ cursor: 'pointer', display: 'inline-block' }}
-            >
-              {'Aakash Kolli'.split('').map((char, i) => (
-                <span key={i} style={{ display: 'inline-block' }}>{char === ' ' ? '\u00a0' : char}</span>
-              ))}
-            </span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-8">
+              <span
+                style={{ cursor: 'pointer', display: 'inline-block' }}
+              >
+                {'Aakash Kolli'.split('').map((char, i) => (
+                  <span key={i} style={{ display: 'inline-block' }}>{char === ' ' ? '\u00a0' : char}</span>
+                ))}
+              </span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-md leading-relaxed mb-8">
-            Stats + CS @{' '}
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-md leading-relaxed mb-12">
+            Stats + CS at{' '}
             <span
               style={{ cursor: 'pointer', display: 'inline-block' }}
             >
@@ -74,7 +74,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="flex flex-wrap gap-5 text-lg"
+          className="flex flex-wrap gap-4 text-base"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -83,27 +83,27 @@ const Hero = () => {
             href="https://github.com/aakashkolli"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors text-lg"
+            className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
           >
-            <Github className="w-6 h-6" />
+            <Github className="w-4 h-4" />
             GitHub
           </a>
           <a
             href="https://linkedin.com/in/aakash-kolli"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors text-lg"
+            className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
           >
-            <Linkedin className="w-6 h-6" />
+            <Linkedin className="w-4 h-4" />
             LinkedIn
           </a>
           <Dialog open={emailDialogOpen} onOpenChange={setEmailDialogOpen}>
             <DialogTrigger asChild>
               <button
-                className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors focus:outline-none text-lg"
+                className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors focus:outline-none"
                 aria-label="Contact via email"
               >
-                <Mail className="w-6 h-6" />
+                <Mail className="w-4 h-4" />
                 Email
               </button>
             </DialogTrigger>
@@ -148,23 +148,21 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-8 left-0 w-full flex justify-center">
-        <motion.button
-          aria-label="Scroll down"
-          onClick={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })}
-          className="text-foreground hover:text-muted-foreground transition-colors"
-          initial={{ opacity: 0, y: -8 }}
-          animate={scrolled ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: scrolled ? 0 : 1.2 }}
+      <motion.button
+        aria-label="Scroll down"
+        onClick={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground hover:text-muted-foreground transition-colors"
+        initial={{ opacity: 0, y: -8 }}
+        animate={scrolled ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: scrolled ? 0 : 1.2 }}
+      >
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-12 h-12" strokeWidth={1.5} />
-          </motion.div>
-        </motion.button>
-      </div>
+          <ChevronDown className="w-12 h-12" strokeWidth={1.5} />
+        </motion.div>
+      </motion.button>
     </section>
   );
 };

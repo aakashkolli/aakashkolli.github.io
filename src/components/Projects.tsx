@@ -28,13 +28,18 @@ const projects: Project[] = [
     imagePath: "/projects/arden.png",
   },
   {
-    title: "Quantitative Trading Engine",
+    title: "Market Microstructure Simulator",
     description:
-      "Event-driven mean reversion system with modular risk management, z-score signal generation, slippage modeling, and transactional trade persistence.",
-    stack: ["Python", "PostgreSQL", "Docker", "yfinance"],
-    // github: "https://github.com",
-    // imagePath: "/projects/trading.png",
+      "High-performance C++ platform simulating limit order-book dynamics with pluggable agent strategies, event-driven runs, and integrated benchmarks for reproducible strategy evaluation.",
+    stack: ["C++17", "AWS Batch", "Terraform", "Docker", "Google Benchmark"],
+  },
+  {
+    title: "Adaptive ML Serving",
+    description:
+      "Adaptive ML inference server with feedback-controlled scheduling for throughput-latency optimization.",
+    stack: ["Python", "FastAPI", "PyTorch", "GitHub Actions"],
   }
+  
 ];
 
 const Projects = () => {
