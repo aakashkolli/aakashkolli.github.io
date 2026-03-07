@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { IconGithub, IconLinkedin, IconMail, IconChevronDown } from "@/components/icons/nav-icons";
 import { useTypewriter } from "@/hooks/use-typewriter";
+import { gtagEvent } from "@/lib/analytics";
 
 const SUBTITLE = "Stats + CS @ UIUC";
 
@@ -15,16 +16,36 @@ const Hero = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // lightweight parallax for hero title
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const title = document.getElementById("hero-title");
+        const sc = window.scrollY;
+        if (title) {
+          const t = Math.max(-40, Math.min(40, sc * -0.03));
+          title.style.transform = `translateY(${t}px)`;
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <section className="min-h-screen flex flex-col items-center justify-center pb-16 relative hero-noise">
       <div className="flex flex-col items-center justify-center w-full h-full relative z-10">
         <div className="fade-in" style={{ animationDelay: "0s" }}>
           <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-8 text-center">
-            <span style={{ cursor: "pointer", display: "inline-block" }}>
+            <span id="hero-title" style={{ cursor: "pointer", display: "inline-block", willChange: "transform" }}>
               {"Aakash Kolli".split("").map((char, i) => (
                 <span key={i} style={{ display: "inline-block" }}>{char === " " ? "\u00a0" : char}</span>
               ))}
-            <span className="sr-only"> — dev HMR test</span>
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-md leading-relaxed mb-12 text-center font-mono">
@@ -35,31 +56,34 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-8 text-xl justify-center fade-in delay-200">
+          <div className="flex flex-wrap gap-8 text-xl justify-center fade-in delay-200">
           <a
             href="https://github.com/aakashkolli"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open GitHub profile (opens in new tab)"
-            className="inline-flex items-center gap-4 text-foreground hover:text-muted-foreground transition-colors"
+            className="inline-flex items-center gap-4 text-foreground hover:text-muted-foreground transition-colors group"
+            onClick={() => gtagEvent('social_click', { network: 'github' })}
           >
-            <IconGithub className="w-8 h-8" />
+            <IconGithub className="w-8 h-8 transform transition-transform duration-200 group-hover:scale-110 group-hover:rotate-6" />
           </a>
           <a
             href="https://linkedin.com/in/aakash-kolli"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open LinkedIn profile (opens in new tab)"
-            className="inline-flex items-center gap-4 text-foreground hover:text-muted-foreground transition-colors"
+            className="inline-flex items-center gap-4 text-foreground hover:text-muted-foreground transition-colors group"
+            onClick={() => gtagEvent('social_click', { network: 'linkedin' })}
           >
-            <IconLinkedin className="w-8 h-8" />
+            <IconLinkedin className="w-8 h-8 transform transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-6" />
           </a>
           <a
             href={`mailto:${email}`}
-            className="inline-flex items-center gap-4 text-foreground hover:text-muted-foreground transition-colors"
+            className="inline-flex items-center gap-4 text-foreground hover:text-muted-foreground transition-colors group"
             aria-label={`Send an email to ${email}`}
+            onClick={() => gtagEvent('social_click', { network: 'email' })}
           >
-            <IconMail className="w-8 h-8" />
+            <IconMail className="w-8 h-8 transform transition-transform duration-200 group-hover:scale-110 group-hover:translate-y-[-2px]" />
           </a>
         </div>
       </div>
