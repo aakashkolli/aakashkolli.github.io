@@ -63,7 +63,7 @@ const Navbar = () => {
           Aakash Kolli
         </button>
 
-        {/* Nav links + dark toggle */}
+        {/* Nav links */}
         <nav className="flex items-center gap-6 nav-links">
           {SECTIONS.map((id, idx) => (
             <button
@@ -79,11 +79,12 @@ const Navbar = () => {
               {LABELS[id]}
             </button>
           ))}
-
-          <button onClick={toggle} aria-label="Toggle theme" className="link text-muted-foreground hover:text-foreground transition-colors">
-            {theme === "dark" ? <IconSun className="w-4 h-4" /> : <IconMoon className="w-4 h-4" />}
-          </button>
         </nav>
+
+        {/* Dark mode toggle on far right */}
+        <button onClick={toggle} aria-label="Toggle theme" className="link text-muted-foreground hover:text-foreground transition-colors">
+          {theme === "dark" ? <IconSun className="w-4 h-4" /> : <IconMoon className="w-4 h-4" />}
+        </button>
       </div>
     </header>
   );
