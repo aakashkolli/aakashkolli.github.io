@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { IconGithub, IconLinkedin, IconMail, IconChevronDown } from "@/components/icons/nav-icons";
 import { useTypewriter } from "@/hooks/use-typewriter";
 
-const SUBTITLE = "Stats + CS at UIUC";
+const SUBTITLE = "Stats + CS @ UIUC";
 
 const Hero = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,6 +24,7 @@ const Hero = () => {
               {"Aakash Kolli".split("").map((char, i) => (
                 <span key={i} style={{ display: "inline-block" }}>{char === " " ? "\u00a0" : char}</span>
               ))}
+            <span className="sr-only"> — dev HMR test</span>
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-md leading-relaxed mb-12 text-center font-mono">
@@ -34,32 +35,31 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-4 text-xl justify-center fade-in delay-200">
+        <div className="flex flex-wrap gap-8 text-xl justify-center fade-in delay-200">
           <a
             href="https://github.com/aakashkolli"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
+            aria-label="Open GitHub profile (opens in new tab)"
+            className="inline-flex items-center gap-4 text-foreground hover:text-muted-foreground transition-colors"
           >
-            <IconGithub className="w-6 h-6" />
-            GitHub
+            <IconGithub className="w-8 h-8" />
           </a>
           <a
             href="https://linkedin.com/in/aakash-kolli"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
+            aria-label="Open LinkedIn profile (opens in new tab)"
+            className="inline-flex items-center gap-4 text-foreground hover:text-muted-foreground transition-colors"
           >
-            <IconLinkedin className="w-6 h-6" />
-            LinkedIn
+            <IconLinkedin className="w-8 h-8" />
           </a>
           <a
             href={`mailto:${email}`}
-            className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors"
+            className="inline-flex items-center gap-4 text-foreground hover:text-muted-foreground transition-colors"
             aria-label={`Send an email to ${email}`}
           >
-            <IconMail className="w-6 h-6" />
-            Email
+            <IconMail className="w-8 h-8" />
           </a>
         </div>
       </div>
