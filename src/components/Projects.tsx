@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { gtagEvent } from "@/lib/analytics";
 import { IconGithub, IconExternalLink } from "@/components/icons/nav-icons";
 
 interface Project {
@@ -47,14 +48,19 @@ const projects: Project[] = [
     const [imageError, setImageError] = useState(false);
 
     return (
-      <div key={project.title} className="card-surface flex flex-col fade-in" style={{ animationDelay: `${index * 0.08}s` }}>
+      <div
+        key={project.title}
+        className="card-surface flex flex-col fade-in group transform transition duration-200 hover:-translate-y-1 hover:shadow-lg"
+        style={{ animationDelay: `${index * 0.08}s` }}
+      >
         {project.imagePath && (
           <div className="w-full aspect-[16/10] bg-muted border-b border-border flex items-center justify-center overflow-hidden">
             {!imageError ? (
               <img
                 src={project.imagePath}
                 alt={project.title}
-                className="w-full h-full object-cover"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
                 onError={() => setImageError(true)}
               />
             ) : (
@@ -72,8 +78,9 @@ const projects: Project[] = [
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-muted-foreground hover:text-foreground transition-colors transform transition-transform duration-200 group-hover:scale-110"
                   aria-label={`${project.title} source code`}
+                  onClick={() => gtagEvent('project_link_click', { project: project.title, type: 'github' })}
                 >
                   <IconGithub className="w-4 h-4" />
                 </a>
@@ -83,8 +90,9 @@ const projects: Project[] = [
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-muted-foreground hover:text-foreground transition-colors transform transition-transform duration-200 group-hover:scale-110"
                   aria-label={`${project.title} live demo`}
+                  onClick={() => gtagEvent('project_link_click', { project: project.title, type: 'demo' })}
                 >
                   <IconExternalLink className="w-4 h-4" />
                 </a>

@@ -16,7 +16,7 @@ const education: EducationItem[] = [
         degree: "Bachelor of Science in Statistics & Computer Science",
         period: "2025 – 2028",
         coursework: "Data Structures & Algorithms, Computer Architecture, Probability, Linear Algebra",
-        activities: "Illinois Business Consulting, SIGRobotics, Center for Health Informatics, Financial Engineering Club, GTO Illini",
+        activities: "Illinois Business Consulting, Center for Health Informatics, Financial Engineering Club, GTO Illini",
         honors: "Chancellor's Scholar",
         logoPath: "/logos/uiuc.png",
     },
