@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Aakash Kolli{% endblock title %}</title>
+    <meta name="description" content="{% block description %}{% endblock description %}">
+    {% block og_tags %}{% endblock og_tags %}
+    <link rel="icon" href="/favicon.ico" sizes="any" id="site-favicon">
+    <link rel="apple-touch-icon" href="/favicon.ico">
+    <meta name="theme-color" content="#111111">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QQBT17TXFP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QQBT17TXFP', {
+        'anonymize_ip': true,
+        'allow_google_signals': false,
+        'allow_ad_personalization_signals': false
+      });
+    </script>
+    <!-- End Google Analytics 4 -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const resolved = saved === 'system' || !saved
+                ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+                : saved;
+            document.documentElement.setAttribute('data-theme', resolved);
+            const favicon = document.getElementById('site-favicon');
+            if (favicon) {
+                favicon.href = resolved === 'dark' ? '/favicon-dark.ico' : '/favicon.ico';
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('img[data-src-dark][data-src-light]').forEach(function(img) {
+                    img.src = resolved === 'dark' ? img.getAttribute('data-src-dark') : img.getAttribute('data-src-light');
+                });
+                document.querySelectorAll('.github-chart').forEach(function(img) {
+                    if (resolved === 'dark') img.classList.add('github-chart--dark');
+                });
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="{% block body_class %}{% endblock body_class %}">
+
+    {% include "partials/nav.html" %}
+
+    {% block content %}{% endblock content %}
+
+    {% block footer %}
+    {% include "partials/footer.html" %}
+    {% endblock footer %}
+
+    <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">
+        <svg class="icon" aria-hidden="true"><use href="/icons.svg#icon-chevron"></use></svg>
+    </button>
+
+    <script src="/components.js?v=6"></script>
+    <script src="/scripts.js?v=6"></script>
+    <script src="/ga4-events.js?v=1"></script>
+</body>
+</html>
