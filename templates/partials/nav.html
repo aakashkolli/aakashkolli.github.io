@@ -1,0 +1,27 @@
+<nav id="navbar" aria-hidden="false" class="visible">
+    <a class="nav-logo" href="/" aria-label="Aakash Kolli - Home">
+        <img class="nav-logo-img" src="/favicon.ico" data-src-light="/favicon.ico" data-src-dark="/favicon-dark.ico" alt="Logo" width="32" height="32" />
+    </a>
+    <div class="nav-links mono">
+        <a href="/" data-page="home"{% if current_path == "/" %} class="nav-link-active"{% endif %}>Home</a>
+        <a href="/work/" data-page="work"{% if current_path == "/work/" %} class="nav-link-active"{% endif %}>Work</a>
+        <a href="/projects/" data-page="projects"{% if current_path == "/projects/" %} class="nav-link-active"{% endif %}>Projects</a>
+        <a href="/contact/" data-page="contact"{% if current_path == "/contact/" %} class="nav-link-active"{% endif %}>Contact</a>
+    </div>
+    <div class="nav-right">
+        <button class="theme-toggle" id="theme-btn" aria-label="Toggle Dark Mode">
+            <svg class="icon" aria-hidden="true"><use href="/icons.svg#icon-system"></use></svg>
+        </button>
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+    <div class="nav-mobile-menu" id="mobile-menu">
+        <a href="/" data-page="home"{% if current_path == "/" %} class="nav-link-active"{% endif %}>Home</a>
+        <a href="/work/" data-page="work"{% if current_path == "/work/" %} class="nav-link-active"{% endif %}>Work</a>
+        <a href="/projects/" data-page="projects"{% if current_path == "/projects/" %} class="nav-link-active"{% endif %}>Projects</a>
+        <a href="/contact/" data-page="contact"{% if current_path == "/contact/" %} class="nav-link-active"{% endif %}>Contact</a>
+    </div>
+</nav>

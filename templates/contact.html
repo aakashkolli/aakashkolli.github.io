@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block description %}Contact me{% endblock description %}
+
+{% block og_tags %}
+<meta property="og:title" content="Contact">
+<meta property="og:description" content="Open to internship opportunities, research collaborations, and conversations.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakashkolli.github.io/contact/">
+<meta name="robots" content="noarchive">
+{% endblock og_tags %}
+
+{% block content %}
+<main class="container">
+    <section id="contact" aria-labelledby="contact-heading">
+        <h1 id="contact-heading">Contact</h1>
+        <div class="contact-section">
+            <p>I'm always open to new opportunities, collaborations, and conversations. The best way to reach me is email.</p>
+
+            <address class="contact-links">
+                <button class="contact-link email-copy-btn" id="email-copy-btn" type="button" aria-label="Copy email address to clipboard">
+                    <svg aria-hidden="true"><use href="/icons.svg#icon-mail"></use></svg>
+                    <span>akolli5 [at] illinois [dot] edu</span>
+                    <span class="email-copy-feedback" aria-live="polite" aria-atomic="true"></span>
+                </button>
+                <a class="contact-link" href="https://github.com/aakashkolli" target="_blank" rel="noopener noreferrer" aria-label="Visit Aakash Kolli's GitHub profile">
+                    <svg aria-hidden="true"><use href="/icons.svg#icon-github"></use></svg>
+                    github.com/aakashkolli
+                </a>
+                <a class="contact-link" href="https://www.linkedin.com/in/aakash-kolli" target="_blank" rel="noopener noreferrer" aria-label="Visit Aakash Kolli's LinkedIn profile">
+                    <svg aria-hidden="true"><use href="/icons.svg#icon-linkedin"></use></svg>
+                    linkedin.com/in/aakash-kolli
+                </a>
+            </address>
+        </div>
+    </section>
+</main>
+{% endblock content %}
