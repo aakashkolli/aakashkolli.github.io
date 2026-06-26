@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Aakash Kolli{% endblock title %}
+
+{% block description %}Aakash Kolli is a Statistics &amp; Computer Science student at UIUC.{% endblock description %}
+
+{% block og_tags %}
+<meta property="og:title" content="Aakash Kolli">
+<meta property="og:description" content="Aakash Kolli's Personal Website.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakashkolli.github.io/">
+{% endblock og_tags %}
+
+{% block body_class %}home-page{% endblock body_class %}
+
+{% block content %}
+<main class="container home-page">
+    <section class="home-about" aria-labelledby="about-me-title">
+        <h1 id="about-me-title">Aakash Kolli</h1>
+        <p>Hi! I'm Aakash, a student at the University of Illinois Urbana-Champaign studying Statistics &amp; Computer Science. I'm currently a Technology &amp; Analytics Intern at ICF, building AI-driven automation systems to streamline high-volume disaster management workflows.</p>
+        <p>Currently exploring internship opportunities for Fall 2026 and Summer 2027.</p>
+    </section>
+</main>
+<div class="home-bottom-bg" aria-hidden="true"></div>
+{% endblock content %}
+
+{% block footer %}
+<footer>
+    <div class="footer-inner container">
+        <div class="mono">&copy; 2026 Aakash Kolli</div>
+    </div>
+</footer>
+<div class="home-socials home-socials-bottom" aria-hidden="false">
+    <a href="https://github.com/aakashkolli" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/icons.svg#icon-github"></use></svg></a>
+    <a href="https://www.linkedin.com/in/aakash-kolli" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/icons.svg#icon-linkedin"></use></svg></a>
+    <button type="button" class="email-copy-btn" aria-label="Copy email address">
+        <svg class="icon" aria-hidden="true"><use href="/icons.svg#icon-mail"></use></svg>
+        <span class="ecl" aria-live="polite" aria-atomic="true"></span>
+    </button>
+</div>
+{% endblock footer %}

@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block title %}Projects{% endblock title %}
+
+{% block og_tags %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Aakash Kolli - Projects",
+  "description": "Portfolio of projects built in Go, Rust, C++, and Python",
+  "url": "https://aakashkolli.github.io/projects/",
+  "hasPart": [
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Adaptive ML Inference Server",
+      "description": "Distributed inference server with adaptive batching, hitless model switching, and lock-free request routing for p99 latency control under bursty traffic.",
+      "url": "https://github.com/aakashkolli/adaptive-inference-server",
+      "programmingLanguage": ["Go", "Python"]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Fault-Tolerant Stream Processing Engine",
+      "description": "Distributed stream processing system with event-time windowing, exactly-once delivery guarantees, Chandy-Lamport distributed checkpointing, and RocksDB-backed state recovery for resilient stream analytics.",
+      "url": "https://github.com/aakashkolli/stream-processor",
+      "programmingLanguage": ["Kotlin"]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Lattice",
+      "description": "Collaborative Markdown editor with CRDT syncing, Rust actor-model backend, and custom binary WebSocket protocol.",
+      "url": "https://github.com/aakashkolli/lattice",
+      "programmingLanguage": ["Rust", "TypeScript"]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Distributed DAG Task Scheduler",
+      "description": "Crash-recoverable DAG scheduler with gRPC streaming workers, BoltDB ACID state, atomic dependency resolution, and heartbeat-based recovery for at-least-once execution.",
+      "url": "https://github.com/aakashkolli/dag-scheduler",
+      "programmingLanguage": ["Go"]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Optimal Execution Algorithm Library",
+      "description": "Low-latency trading execution framework implementing TWAP, VWAP, and adaptive implementation shortfall strategies with lock-free order routing, FIX protocol connectivity, and Almgren-Chriss optimal execution modeling for cost-aware trade scheduling.",
+      "url": "https://github.com/aakashkolli/optimal-execution",
+      "programmingLanguage": ["C++", "Python"]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "NASDAQ ITCH Order Book Replay System",
+      "description": "Zero-allocation limit order book engine reconstructing NASDAQ ITCH 5.0 feeds via mmap-based parsing, slab allocation, and Robin Hood hashing, achieving ~7.5M events/sec with strict price-time priority and reproducible replay.",
+      "url": "https://github.com/aakashkolli",
+      "programmingLanguage": ["C++"]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "ML for European Options",
+      "description": "ML-powered options pricing and volatility modeling for SPX contracts.",
+      "url": "https://github.com/jasonydog9/FEC-European-options-7",
+      "programmingLanguage": ["Python"]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Arden",
+      "description": "AI copilot for psychiatric assessment, fusing emotion detection and crisis keyword analysis.",
+      "url": "https://github.com/aakashkolli",
+      "programmingLanguage": ["Python", "React", "TypeScript"]
+    }
+  ]
+}
+</script>
+<meta property="og:title" content="Projects">
+<meta property="og:description" content="Projects built in Go, Rust, C++, and Python.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakashkolli.github.io/projects/">
+{% endblock og_tags %}
+
+{% block description %}Projects built in Go, Rust, C++, and Python{% endblock description %}
+
+{% block content %}
+<main class="container">
+    <section id="projects" aria-labelledby="projects-heading">
+        <div class="projects-header">
+            <h1 id="projects-heading">Projects</h1>
+        </div>
+
+        <div class="projects-search-container">
+            <div class="projects-search-field">
+                <input
+                    type="text"
+                    id="projects-search"
+                    class="projects-search"
+                    placeholder="Search projects..."
+                    aria-label="Search projects by title, description, or technology"
+                >
+                <svg class="search-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
+            <button id="project-filter-reset" class="projects-filter-reset" type="button" hidden>Clear Filter</button>
+        </div>
+
+        <div class="projects-grid">
+
+            <article class="project-card">
+                <div class="project-info">
+                    <header class="project-header">
+                        <h2 class="project-title">Adaptive ML Inference Server</h2>
+                        <a href="https://github.com/aakashkolli/adaptive-inference-server" aria-label="View Adaptive ML Inference Server on GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon small" width="16" height="16" aria-hidden="true"><use href="/icons.svg#icon-github"></use></svg></a>
+                    </header>
+                    <p class="project-desc">Self-tuning inference platform that automatically adjusts batching, model precision, and serving behavior to maintain latency targets under changing traffic conditions. Supports hitless model upgrades and precision-aware routing to balance cost, throughput, and prediction quality in real time.</p>
+                    <p class="project-desc">Built with Go, Python, ONNX Runtime, and gRPC. Uses PID-controlled adaptive batching, lock-free model routing, multi-precision DistilBERT deployments, and Prometheus-powered observability to continuously optimize serving performance under bursty workloads.</p>
+                    <div class="tags">
+                        <span class="tag">Go</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">gRPC</span>
+                        <span class="tag">ONNX Runtime</span>
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">Docker</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-info">
+                    <header class="project-header">
+                        <h2 class="project-title">Fault-Tolerant Stream Processing Engine</h2>
+                        <a href="https://github.com/aakashkolli/stream-processor" aria-label="View Fault-Tolerant Stream Processing Engine on GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon small" width="16" height="16" aria-hidden="true"><use href="/icons.svg#icon-github"></use></svg></a>
+                    </header>
+                    <p class="project-desc">Distributed stream processing framework for analyzing high-volume event streams with accurate event-time semantics. Supports tumbling, sliding, and session windows while handling out-of-order data, allowing analytics pipelines to produce correct results even when events arrive late or partitions temporarily stall.</p>
+                    <p class="project-desc">Built in Kotlin with Apache Kafka and RocksDB. Implements watermark-based event-time processing, idle-partition detection, Chandy-Lamport distributed snapshots, and transactional Kafka sinks to provide exactly-once delivery guarantees and fault-tolerant state recovery.</p>
+                    <div class="tags mono">
+                        <span class="tag">Kotlin</span>
+                        <span class="tag">RocksDB</span>
+                        <span class="tag">Apache Kafka</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-info">
+                    <header class="project-header">
+                        <h2 class="project-title">Lattice</h2>
+                        <div class="project-links">
+                            <a href="https://github.com/aakashkolli/lattice" aria-label="View Lattice on GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon small" width="16" height="16" aria-hidden="true"><use href="/icons.svg#icon-github"></use></svg></a>
+                            <a href="https://lattice-ak.vercel.app/" aria-label="View Lattice live deployment" target="_blank" rel="noopener noreferrer"><svg class="icon small" width="16" height="16" aria-hidden="true"><use href="/icons.svg#icon-external-link"></use></svg></a>
+                        </div>
+                    </header>
+                    <p class="project-desc">Collaborative Markdown editor with live previews, comments, cursor presence, and conflict-free editing across multiple users. Comments remain attached to the correct text even as collaborators edit simultaneously, allowing teams to review and discuss documents without losing context.</p>
+                    <p class="project-desc">Built with Next.js, Rust, and Yjs CRDTs. Uses an actor-per-room backend architecture with a custom binary WebSocket protocol, deterministic CRDT synchronization, and server-side update replay that guarantees convergence for reconnecting and late-joining clients.</p>
+                    <div class="tags mono">
+                        <span class="tag">Rust</span>
+                        <span class="tag">Next.js</span>
+                        <span class="tag">Yjs</span>
+                        <span class="tag">WebSockets</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-info">
+                    <header class="project-header">
+                        <h2 class="project-title">Distributed DAG Task Scheduler</h2>
+                        <a href="https://github.com/aakashkolli/dag-scheduler" aria-label="View Distributed DAG Task Scheduler on GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon small" width="16" height="16" aria-hidden="true"><use href="/icons.svg#icon-github"></use></svg></a>
+                    </header>
+                    <p class="project-desc">Crash-recoverable workflow orchestration system that executes dependency-based DAGs across distributed workers. Submit a directed acyclic graph of tasks, monitor execution in real time, and recover automatically from worker or coordinator failures without losing workflow state.</p>
+                    <p class="project-desc">Built in Go with gRPC streaming and BoltDB-backed persistence. Uses atomic dependency resolution, heartbeat-based failure detection, UUID execution tokens to reject stale results, and crash recovery logic that reconstructs workflow state and resumes execution after coordinator restarts.</p>
+                    <div class="tags mono">
+                        <span class="tag">Go</span>
+                        <span class="tag">gRPC</span>
+                        <span class="tag">BoltDB</span>
+                        <span class="tag">Prometheus</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-info">
+                    <header class="project-header">
+                        <h2 class="project-title">Optimal Execution Algorithm Library</h2>
+                        <a href="https://github.com/aakashkolli/optimal-execution" aria-label="View Optimal Execution Algorithm Library on GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon small" width="16" height="16" aria-hidden="true"><use href="/icons.svg#icon-github"></use></svg></a>
+                    </header>
+                    <p class="project-desc">Order execution library that slices large equity trades into optimally timed child orders using TWAP, VWAP, and Implementation Shortfall strategies, built on the Almgren-Chriss market impact model. Adaptive IS variant recalibrates trading trajectories at each slice using a constrained BVP solver with RK4 integration, minimizing execution cost and risk under live market conditions.</p>
+                    <p class="project-desc">Built in C++17 with a lock-free order state machine, SPSC ring buffers, and a zero-allocation FIX 4.4 parser with O(1) tag dispatch. Includes a GBM-driven price-time priority matching engine for simulation, Python bindings via pybind11, and a Polars-based post-trade analysis layer.</p>
+                    <div class="tags mono">
+                        <span class="tag">C++17</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Eigen</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-info">
+                    <header class="project-header">
+                        <h2 class="project-title">NASDAQ ITCH Order Book Replay System</h2>
+                        <a href="https://github.com/aakashkolli/orderbook" aria-label="View NASDAQ ITCH Order Book Replay System on GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon small" width="16" height="16" aria-hidden="true"><use href="/icons.svg#icon-github"></use></svg></a>
+                    </header>
+                    <p class="project-desc">High-performance market replay engine that reconstructs the full NASDAQ limit order book from raw ITCH feeds. Supports deterministic replay, queue-position fill modeling, and event-level backtesting, enabling realistic simulation of execution behavior and trading strategies.</p>
+                    <p class="project-desc">Built in C++ with zero-copy parsing, custom memory allocators, and Robin Hood hashing. Uses mmap-backed data ingestion, fixed-point arithmetic, and strict price-time priority matching to process millions of market events per second while producing bitwise-reproducible results.</p>
+                    <div class="tags mono">
+                        <span class="tag">C++17</span>
+                        <span class="tag">pybind11</span>
+                        <span class="tag">Google Benchmark</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-img">
+                    <img src="/projects/quant.png" alt="Screenshot of ML-powered European options pricing dashboard showing volatility surface and SPX contract analysis" width="800" height="400" loading="lazy" decoding="async" style="object-position: top;">
+                </div>
+                <div class="project-info">
+                    <header class="project-header">
+                        <h2 class="project-title">ML for European Options</h2>
+                        <a href="https://github.com/jasonydog9/FEC-European-options-7" aria-label="View ML for European Options on GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon small" width="16" height="16" aria-hidden="true"><use href="/icons.svg#icon-github"></use></svg></a>
+                    </header>
+                    <p class="project-desc">Machine learning system for estimating implied volatility and pricing European SPX options using historical market data. Compares tree-based models and neural networks against traditional Black-Scholes methods to evaluate tradeoffs between predictive accuracy and computational efficiency.</p>
+                    <p class="project-desc">Built in Python using XGBoost, Random Forests, and neural networks trained on historical options data. Includes a full preprocessing and evaluation pipeline, volatility surface visualization, Black-Scholes benchmarking, and a Streamlit interface for interactive model exploration.</p>
+                    <div class="tags mono">
+                        <span class="tag">Python</span>
+                        <span class="tag">scikit-learn</span>
+                        <span class="tag">Black-Scholes</span>
+                        <span class="tag">Streamlit</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-img">
+                    <img src="/projects/arden.png" alt="Screenshot of Arden AI psychiatric assessment copilot interface showing emotion detection and crisis analysis features" width="800" height="400" loading="lazy" decoding="async">
+                </div>
+                <div class="project-info">
+                    <header class="project-header">
+                        <h2 class="project-title">Arden</h2>
+                        <a href="https://github.com/yyardi/nexhacks" aria-label="View Arden on GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon small" width="16" height="16" aria-hidden="true"><use href="/icons.svg#icon-github"></use></svg></a>
+                    </header>
+                    <p class="project-desc">AI copilot for psychiatric assessments that analyzes speech, facial behavior, and conversational cues to identify early indicators of distress and crisis risk, converting multimodal patient data into structured outputs for live clinical interviews.</p>
+                    <p class="project-desc">Built with a React frontend and Python LiveKit agent, it uses a vision model for facial expression and posture tracking, a voice agent for empathetic dialogue, and a session layer that generates clinical summaries and crisis signals.</p>
+                    <div class="tags mono">
+                        <span class="tag">Python</span>
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">LiveKit</span>
+                        <span class="tag">Supabase</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+</main>
+{% endblock content %}

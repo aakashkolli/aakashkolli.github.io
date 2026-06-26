@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Experience{% endblock title %}
+
+{% block description %}Aakash Kolli's experience.{% endblock description %}
+
+{% block og_tags %}
+<meta property="og:title" content="Experience">
+<meta property="og:description" content="Software engineering experience and research internships.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakashkolli.github.io/work/">
+{% endblock og_tags %}
+
+{% block content %}
+<main class="container">
+    <section id="work" aria-labelledby="work-heading">
+        <h1 id="work-heading">Experience</h1>
+
+        <article class="list-card">
+            <div class="card-logo">
+                <a class="card-logo-link" href="https://www.icf.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit ICF website">
+                    <img class="logo-full icf-logo" src="/logos/icf-light.png" alt="ICF logo" width="48" height="48" loading="lazy" decoding="async">
+                </a>
+            </div>
+            <div class="card-content">
+                <header class="card-header">
+                    <h2 class="card-title">Technology &amp; Analytics Intern</h2>
+                    <time class="card-date mono" datetime="2026-06">Jun 2026 – Present</time>
+                </header>
+                <p class="card-subtitle">ICF</p>
+                <p class="card-desc">Building AI-driven automation systems to streamline high-volume disaster management workflows.</p>
+            </div>
+        </article>
+
+        <article class="list-card">
+            <div class="card-logo">
+                <a class="card-logo-link" href="https://giesgroups.illinois.edu/ibc/illinois-business-consulting/" target="_blank" rel="noopener noreferrer" aria-label="Visit Illinois Business Consulting website">
+                    <img class="logo-full" src="/logos/ibc.png" alt="Illinois Business Consulting logo" width="48" height="48" loading="lazy" decoding="async">
+                </a>
+            </div>
+            <div class="card-content">
+                <header class="card-header">
+                    <h2 class="card-title">Software Engineer</h2>
+                    <time class="card-date mono" datetime="2026-02">Feb 2026 – May 2026</time>
+                </header>
+                <p class="card-subtitle">Illinois Business Consulting</p>
+                <p class="card-desc">Infra tech team, building real-time consultant staffing platform</p>
+            </div>
+        </article>
+
+        <article class="list-card">
+            <div class="card-logo">
+                <a class="card-logo-link" href="https://atlas.illinois.edu/atlas-internship-program" target="_blank" rel="noopener noreferrer" aria-label="Visit UIUC Atlas internship program website">
+                    <img src="/logos/uiuc.png" alt="University of Illinois Urbana-Champaign logo" width="48" height="48" loading="lazy" decoding="async">
+                </a>
+            </div>
+            <div class="card-content">
+                <header class="card-header">
+                    <h2 class="card-title">Machine Learning &amp; AI Intern</h2>
+                    <time class="card-date mono" datetime="2026-01">Jan 2026 – May 2026</time>
+                </header>
+                <p class="card-subtitle">University of Illinois Urbana-Champaign</p>
+                <p class="card-desc">RAG chatbot for new degree program website</p>
+            </div>
+        </article>
+
+        <article class="list-card">
+            <div class="card-logo">
+                <a class="card-logo-link" href="https://www.uic.edu/" target="_blank" rel="noopener noreferrer" aria-label="Visit University of Illinois Chicago website">
+                    <img src="/logos/uic.png" alt="University of Illinois Chicago logo" width="48" height="48" loading="lazy" decoding="async">
+                </a>
+            </div>
+            <div class="card-content">
+                <header class="card-header">
+                    <h2 class="card-title">Research Intern</h2>
+                    <time class="card-date mono" datetime="2025-05">May 2025 – Aug 2025</time>
+                </header>
+                <p class="card-subtitle">University of Illinois Chicago</p>
+                <p class="card-desc">Urban visual analytics research</p>
+            </div>
+        </article>
+
+        <article class="list-card">
+            <div class="card-logo">
+                <a class="card-logo-link" href="https://www.niu.edu/index.shtml" target="_blank" rel="noopener noreferrer" aria-label="Visit Northern Illinois University website">
+                    <img src="/logos/niu.png" alt="Northern Illinois University logo" width="48" height="48" loading="lazy" decoding="async">
+                </a>
+            </div>
+            <div class="card-content">
+                <header class="card-header">
+                    <h2 class="card-title">Research Intern</h2>
+                    <time class="card-date mono" datetime="2024-05">May 2024 – Jul 2024</time>
+                </header>
+                <p class="card-subtitle">Northern Illinois University</p>
+                <p class="card-desc">Jupyter Notebooks research</p>
+            </div>
+        </article>
+    </section>
+</main>
+{% endblock content %}
