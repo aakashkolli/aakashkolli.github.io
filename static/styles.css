@@ -75,6 +75,12 @@
     --home-footer-bg: #FFFFFF;
 }
 
+[data-theme="light"] .list-card,
+[data-theme="light"] .project-card {
+    background-color: #f2f2f0;
+    border-color: #d9d9d7;
+}
+
 * {
     margin: 0;
     padding: 0;
