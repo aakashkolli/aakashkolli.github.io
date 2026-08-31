@@ -162,29 +162,78 @@ updateScrollAffordances();
     updateResetButton();
 })();
 
-// Arrow key navigation between pages
+// Scrollspy: highlight the nav link for the section currently in view
 (function() {
-    const pageOrder = ['/', '/work/', '/projects/', '/contact/'];
+    const sectionIds = ['hero', 'work', 'projects', 'contact'];
+    const sectionToPage = { hero: 'home', work: 'work', projects: 'projects', contact: 'contact' };
+    const navLinks = document.querySelectorAll('.nav-links a, .nav-mobile-menu a');
+    if (!navLinks.length) return;
 
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-            const currentPath = window.location.pathname;
-            let currentIndex = pageOrder.indexOf(currentPath);
+    function setActivePage(page) {
+        navLinks.forEach(a => a.classList.toggle('nav-link-active', a.dataset.page === page));
+    }
 
-            if (currentIndex === -1) {
-                currentIndex = 0;
+    const sections = sectionIds
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+    if (!sections.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+        setActivePage('home');
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        if (window.scrollY < 80) {
+            setActivePage('home');
+            return;
+        }
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setActivePage(sectionToPage[entry.target.id]);
             }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
 
-            let nextIndex;
-            if (e.key === 'ArrowRight') {
-                nextIndex = (currentIndex + 1) % pageOrder.length;
-            } else {
-                nextIndex = (currentIndex - 1 + pageOrder.length) % pageOrder.length;
-            }
+    sections.forEach(section => observer.observe(section));
 
-            window.location.href = pageOrder[nextIndex];
+    window.addEventListener('scroll', () => {
+        if (window.scrollY < 80) setActivePage('home');
+    }, { passive: true });
+})();
+
+// In-page anchor scrolling, handled manually since the browser's native
+// fragment-scroll behavior is unreliable here
+(function() {
+    function scrollToHash(hash, behavior) {
+        if (!hash || hash === '#') {
+            window.scrollTo({ top: 0, behavior: behavior });
+            return true;
+        }
+        const target = document.getElementById(hash.slice(1));
+        if (!target) return false;
+        target.scrollIntoView({ behavior: behavior, block: 'start' });
+        return true;
+    }
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href^="#"]');
+        if (!link) return;
+        const hash = link.getAttribute('href');
+        if (!scrollToHash(hash, 'smooth')) return;
+        e.preventDefault();
+        if (hash !== '#' && history.pushState) {
+            history.pushState(null, '', hash);
+        } else if (history.pushState) {
+            history.pushState(null, '', window.location.pathname + window.location.search);
         }
     });
+
+    if (window.location.hash) {
+        window.addEventListener('load', () => {
+            scrollToHash(window.location.hash, 'instant');
+        });
+    }
 })();
 
 // Project search and filtering
@@ -242,7 +291,6 @@ if (document.readyState === 'loading') {
         mobileMenu.classList.toggle('open');
     });
 
-    // Close menu when a link is clicked
     if (mobileLinks) {
         mobileLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -252,7 +300,6 @@ if (document.readyState === 'loading') {
         });
     }
 
-    // Close menu when clicking outside
     document.addEventListener('click', function(e) {
         if (!hamburgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
             hamburgerBtn.setAttribute('aria-expanded', 'false');

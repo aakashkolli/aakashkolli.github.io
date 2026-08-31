@@ -1,5 +1,5 @@
 (function () {
-  // Email encoded with XOR key 42 — decoded only on user click, never in DOM at load time
+  // Email is XOR-encoded so it never sits in the DOM as plain text until copied
   var _d = [75,65,69,70,70,67,31,106,67,70,70,67,68,69,67,89,4,79,78,95], _k = 42;
 
   function _decode() {
@@ -55,23 +55,12 @@
     backToTopHost.insertAdjacentHTML('beforeend', BACK_TO_TOP_HTML);
   }
 
-  var path = window.location.pathname;
-  var activePage = 'home';
-  if (/^\/work\//.test(path)) activePage = 'work';
-  else if (/^\/projects\//.test(path)) activePage = 'projects';
-  else if (/^\/contact\//.test(path)) activePage = 'contact';
-
-  document.querySelectorAll('.nav-links a').forEach(function (a) {
-    if (a.dataset.page === activePage) a.classList.add('nav-link-active');
-  });
-
   var nav = document.getElementById('navbar');
   if (nav) {
     nav.classList.add('visible');
     nav.setAttribute('aria-hidden', 'false');
   }
 
-  // Wire up all email copy buttons on this page (injected + static)
   document.querySelectorAll('.email-copy-btn').forEach(function(btn) {
     btn.addEventListener('click', function() { _copyEmail(btn); });
   });
