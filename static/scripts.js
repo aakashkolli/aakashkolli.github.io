@@ -202,26 +202,54 @@ updateScrollAffordances();
     }, { passive: true });
 })();
 
-// In-page anchor scrolling, handled manually since the browser's native
-// fragment-scroll behavior is unreliable here
+// In-page anchor scrolling, animated by hand since the browser's native
+// smooth scroll can silently no-op on the first scroll after page load
 (function() {
-    function scrollToHash(hash, behavior) {
-        if (!hash || hash === '#') {
-            window.scrollTo({ top: 0, behavior: behavior });
-            return true;
+    function animateScrollTo(targetY, duration) {
+        const startY = window.scrollY;
+        const distance = targetY - startY;
+        const startTime = performance.now();
+        let done = false;
+
+        function finish() {
+            if (done) return;
+            done = true;
+            window.scrollTo({ top: targetY, behavior: 'instant' });
         }
+
+        function step(now) {
+            if (done) return;
+            const elapsed = Math.min((now - startTime) / duration, 1);
+            const eased = elapsed < 0.5
+                ? 2 * elapsed * elapsed
+                : 1 - Math.pow(-2 * elapsed + 2, 2) / 2;
+            window.scrollTo({ top: startY + distance * eased, behavior: 'instant' });
+            if (elapsed < 1) requestAnimationFrame(step);
+            else finish();
+        }
+        requestAnimationFrame(step);
+        // Guarantees the final position lands correctly even if rAF never
+        // gets a frame (e.g. the tab is backgrounded mid-click)
+        setTimeout(finish, duration + 150);
+    }
+
+    function targetYForHash(hash) {
+        if (!hash || hash === '#') return 0;
         const target = document.getElementById(hash.slice(1));
-        if (!target) return false;
-        target.scrollIntoView({ behavior: behavior, block: 'start' });
-        return true;
+        if (!target) return null;
+        const scrollMarginTop = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        return Math.max(0, Math.min(target.getBoundingClientRect().top + window.scrollY - scrollMarginTop, maxScroll));
     }
 
     document.addEventListener('click', (e) => {
         const link = e.target.closest('a[href^="#"]');
         if (!link) return;
         const hash = link.getAttribute('href');
-        if (!scrollToHash(hash, 'smooth')) return;
+        const targetY = targetYForHash(hash);
+        if (targetY === null) return;
         e.preventDefault();
+        animateScrollTo(targetY, 500);
         if (hash !== '#' && history.pushState) {
             history.pushState(null, '', hash);
         } else if (history.pushState) {
@@ -231,7 +259,8 @@ updateScrollAffordances();
 
     if (window.location.hash) {
         window.addEventListener('load', () => {
-            scrollToHash(window.location.hash, 'instant');
+            const targetY = targetYForHash(window.location.hash);
+            if (targetY !== null) window.scrollTo({ top: targetY, behavior: 'instant' });
         });
     }
 })();
